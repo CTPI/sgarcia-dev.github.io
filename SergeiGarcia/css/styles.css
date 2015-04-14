@@ -1,18 +1,63 @@
-.navbar {
-  border: 0;
-  -webkit-transition: background 0.3s ease-in-out;
-  -moz-transition: background 0.3s ease-in-out;
-  -o-transition: background 0.3s ease-in-out;
-  transition: background 0.3s ease-in-out;
+* {
+  font-family: 'Source Sans Pro' !important;
 }
-.navbar.transparent {
-  background: transparent !important;
+/* Small devices (tablets, 768px and up) */
+/* Medium devices (desktops, 992px and up) */
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .navbar {
+    border: 0;
+    padding-top: 0;
+    padding-bottom: 0px;
+    transition: background 0.25s ease-in-out, padding 0.25s ease-in-out;
+    -webkit-transition: background 0.25s ease-in-out, padding 0.25s ease-in-out;
+  }
+  .navbar .navbar-nav {
+    color: white !important;
+    transition: background 0.25s ease-in-out;
+    -webikit-transition: background 0.25s ease-in-out;
+  }
+  .navbar.transparent {
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+    background: transparent !important;
+  }
+  .navbar.transparent a {
+    color: black !important;
+  }
+  .navbar.transparent a.navbar-nav:hover,
+  .navbar.transparent a.navbar-nav:active,
+  .navbar.transparent a.navbar-nav:focus {
+    color: white !important;
+    background-color: black;
+  }
+  .cover h1 {
+    font-size: 6em;
+  }
+  .banner-one {
+    position: relative;
+    width: 100vw;
+    height: 10em;
+    background-color: red;
+  }
 }
-.navbar.transparent * {
-  color: black !important;
+.cover {
+  position: relative;
+  padding: 0;
+  height: 80vh;
 }
-.navbar * {
-  color: white !important;
+.cover .cover-container {
+  text-align: center;
+  width: 80%;
+}
+.cover .cover-container h1 {
+  font-weight: bolder;
+}
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .no-margin {
   margin: 0;
