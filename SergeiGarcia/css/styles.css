@@ -1,0 +1,22 @@
+.navbar {
+  border: 0;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  -o-transition: background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
+}
+.navbar.transparent {
+  background: transparent !important;
+}
+.navbar.transparent * {
+  color: black !important;
+}
+.navbar * {
+  color: white !important;
+}
+.no-margin {
+  margin: 0;
+}
+.no-padding {
+  padding: 0;
+}
