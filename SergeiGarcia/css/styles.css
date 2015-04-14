@@ -1,10 +1,42 @@
 * {
   font-family: 'Source Sans Pro' !important;
 }
+.navbar {
+  color: white !important;
+}
+.cover {
+  position: relative;
+  padding: 0;
+  height: 100vh;
+  background-image: url(../images/lap5.jpg);
+  background-size: cover;
+  color: white;
+}
+.cover .cover-container {
+  text-align: center;
+  width: 80%;
+}
+.cover .cover-container h1 {
+  font-weight: bolder;
+}
+.bio {
+  width: 80%;
+  margin: 0 auto;
+  padding: 5em 0;
+  text-align: center;
+}
+.bio img {
+  border-radius: 100%;
+  height: 10em;
+  width: 10em;
+}
+.bio p {
+  text-align: justify;
+  text-justify: inter-word;
+}
 /* Small devices (tablets, 768px and up) */
 /* Medium devices (desktops, 992px and up) */
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .navbar {
     border: 0;
     padding-top: 0;
@@ -23,7 +55,7 @@
     background: transparent !important;
   }
   .navbar.transparent a {
-    color: black !important;
+    color: white !important;
   }
   .navbar.transparent a.navbar-nav:hover,
   .navbar.transparent a.navbar-nav:active,
@@ -31,28 +63,17 @@
     color: white !important;
     background-color: black;
   }
-  .cover h1 {
-    font-size: 6em;
+  .bio {
+    width: 40%;
   }
   .banner-one {
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 10em;
-    background-color: red;
+    background-color: darkgray;
   }
 }
-.cover {
-  position: relative;
-  padding: 0;
-  height: 80vh;
-}
-.cover .cover-container {
-  text-align: center;
-  width: 80%;
-}
-.cover .cover-container h1 {
-  font-weight: bolder;
-}
+/* Large devices (large desktops, 1200px and up) */
 .absolute-center {
   position: absolute;
   top: 50%;

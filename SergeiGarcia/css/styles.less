@@ -7,6 +7,41 @@
 	font-family: 'Source Sans Pro' !important;
 }
 
+.navbar {
+	color: white !important;
+}
+
+.cover {
+	position: relative;
+	padding: 0;
+	height: 100vh;
+	background-image: url(../images/lap5.jpg);
+	background-size: cover;
+	color: white;
+	.cover-container {
+		text-align: center;
+		width: 80%;
+		h1 {
+			font-weight: bolder;
+		}
+	}
+}
+
+.bio {
+	width: 80%;
+	margin: 0 auto;
+	padding: 5em 0;
+	text-align: center;
+	img {
+		border-radius: 100%;
+		height: 10em;
+		width: 10em;
+	}
+	p {
+		text-align: justify;
+		text-justify: inter-word;
+	}
+}
 /* Small devices (tablets, 768px and up) */
 @media (min-width: @screen-sm-min) {
 
@@ -14,18 +49,13 @@
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: @screen-md-min) {
-
-}
-
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: @screen-lg-min) {
 	.navbar {
 		border: 0;
 		padding-top: 0;
 		padding-bottom: 0px;
 		transition: background @anim-short ease-in-out, padding @anim-short ease-in-out;
 		-webkit-transition: background @anim-short ease-in-out, padding @anim-short ease-in-out;
-		.navbar-nav{
+		.navbar-nav {
 			color: white !important;
 			transition: background @anim-short ease-in-out;
 			-webikit-transition: background @anim-short ease-in-out;
@@ -35,7 +65,7 @@
 			padding-bottom: 0.6em;
 			background: transparent !important;
 			a {
-				color: black !important;
+				color: white !important;
 				&.navbar-nav:hover, &.navbar-nav:active, &.navbar-nav:focus {
 					color: white !important;
 					background-color: black;
@@ -44,32 +74,22 @@
 		}
 	}
 
-	.cover {
-			h1 {
-				font-size: 6em;
-			}
+	.bio {
+		width: 40%;
 	}
 
 	.banner-one {
 		position: relative;
-		width: 100vw;
+		width: 100%;
 		height: 10em;
-		background-color: red;
+		background-color: darkgray;
 	}
 
 }
 
-.cover {
-	position: relative;
-	padding: 0;
-	height: 80vh;
-	.cover-container {
-		text-align: center;
-		width: 80%;
-		h1 {
-			font-weight: bolder;
-		}
-	}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+
 }
 
 // utility classes
