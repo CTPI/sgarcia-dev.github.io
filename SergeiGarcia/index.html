@@ -2,6 +2,8 @@
 <html lang="en">
 	<head>
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro">
+		<link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../bower_components/bootswatch/cosmo/bootstrap.css"/>
 		<link rel="stylesheet" href="css/styles.css"/>
 		<meta charset="UTF-8">
@@ -9,7 +11,7 @@
 	</head>
 	<body>
 		<header>
-			<nav class="navbar navbar-default navbar-fixed-top no-margin transparent hidden-xs" role="navigation">
+			<nav class="navbar navbar-default navbar-fixed-top no-margin transparent hidden-xs navigation-bar" role="navigation">
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
@@ -20,16 +22,16 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand navbar-nav" href="#">Sergei García</a>
+						<a class="navbar-brand navbar-nav override" href="#">Sergei García</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#" class="navbar-nav">Home</a></li>
-							<li><a href="#" class="navbar-nav">About</a></li>
-							<li><a href="#" class="navbar-nav">Portfolio</a></li>
-							<li><a href="#" class="navbar-nav">Contact</a></li>
+							<li><a href="#" class="navbar-nav override">Home</a></li>
+							<li><a href="#" class="navbar-nav override">About</a></li>
+							<li><a href="#" class="navbar-nav override">Portfolio</a></li>
+							<li><a href="#" class="navbar-nav override">Contact</a></li>
 						</ul>
 					</div>
 				</div>
@@ -40,21 +42,20 @@
 			<!-- jumbotron: start -->
 			<div class="jumbotron cover no-margin">
 				<div class="cover-container absolute-center">
-					<h1>FRONT END DEVELOPER</h1>
-					<h3>With a Passion for <b>AngularJS</b></h3>
+					<h4 class="subtitle">Single page application developer with a <span>passion</span> for</h4>
+					<h1 class="title">ANGULARJS</h1>
+				</div>
+				<div class="scroll-indicator">
+					<i class="fa fa-angle-double-down"></i>
 				</div>
 			</div>
 			<!-- jumbotron: end -->
 			<div class="container">
 				<div class="bio">
 					<img src="images/me3.jpg" alt="Picture of Me"/>
-					<h3>About Me</h3>
+					<h2 class="subtitle">About Me</h2>
 					<p>Sergei García is a Software Development Engineer currently working at Accenture as a software developer. Graduated from TecMilenio University with honors, he is a competitive and highly perfectionist person, his expertise ranges from Desktop Application development (C#, WPF, Entity Framework) and Java Back End (JSF, Servlets, JPA, EJBs), to Front End application development (HTML5, CSS3, Javascript, JQuery, Bootstrap, AngularJS). His interests include pencil drawing, tech-blog reading and mobile multiplatform application development.</p>
 				</div>
-			</div>
-
-			<div class="banner-one">
-
 			</div>
 		</main>
 		<script src="../bower_components/jquery/dist/jquery.js"></script>
