@@ -19,5 +19,3 @@ $('html, body').css({
 	'overflow': 'hidden',
 	'height': '100%'
 });*/
-
-console.log('hello');
