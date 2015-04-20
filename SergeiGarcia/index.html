@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- vendor -->
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Lora|Slabo+27px|Open+Sans:300,400' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../bower_components/bootswatch/cosmo/bootstrap.css"/>
+		<link rel="stylesheet" href="../bower_components/animate.css/animate.min.css"/>
+		<!-- custom -->
+		<link rel="stylesheet" href="css/styles.css"/>
+		<meta charset="UTF-8">
+		<!-- vendor -->
+		<script src="../bower_components/jquery/dist/jquery.js" defer></script>
+		<script src="../bower_components/bootstrap/dist/js/bootstrap.js" defer></script>
+		<script src="../bower_components/wow.js/dist/wow.min.js"></script>
+		<script src="../bower_components/angularjs/angular.js" defer></script>
+		<script src="../bower_components/ui-router/release/angular-ui-router.min.js" defer></script>
+		<!-- custom -->
+		<script src="js/app.js" defer></script>
+		<script src="js/appMod.js" defer></script>
+		<script src="js/appCtrl.js" defer></script>
+		<script src="js/home/homeCtrl.js" defer></script>
+		<script src="js/about/aboutCtrl.js" defer></script>
+		<script src="js/skills/skillsCtrl.js" defer></script>
+		<script src="js/portfolio/portfolioCtrl.js" defer></script>
+		<script src="js/contact/contactCtrl.js" defer></script>
+
+		<title>Sergei Garcia | Front End Developer</title>
+	</head>
+	<body ng-app="appModule">
+		<header>
+			<nav class="navbar navbar-default navbar-fixed-top no-margin transparent hidden-xs navigation-bar" role="navigation">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+						        data-target=".navbar-ex1-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand navbar-nav override" href="#">Sergei García</a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse navbar-ex1-collapse">
+						<ul class="nav navbar-nav navbar-right">
+							<li><a ui-sref="home" class="navbar-nav override">Home</a></li>
+							<li><a ui-sref="about" class="navbar-nav override">About</a></li>
+							<li><a ui-sref="skills" class="navbar-nav override">Skills</a></li>
+							<li><a ui-sref="portfolio" class="navbar-nav override">Portfolio</a></li>
+							<li><a ui-sref="contact" class="navbar-nav override">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- /.navbar-collapse -->
+			</nav>
+		</header>
+		<main>
+			<ui-view>
+
+			</ui-view>
+		</main>
+		<footer>
+			<div class="container">
+				<div class="col-sm-6 no-padding footer-left">
+					Sites: <a href="">LinkedIn</a> | <a href="">Github</a>| <a href="Twitter">Twitter</a>
+				</div>
+				<div class="col-sm-6 no-padding footer-right">
+					Disclaimer information
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

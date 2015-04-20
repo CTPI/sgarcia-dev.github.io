@@ -1,0 +1,174 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Slabo 27px', serif;
+}
+p,
+a,
+label {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.8em;
+}
+/* navigation bar start */
+.navigation-bar {
+  z-index: 10;
+  box-sizing: border-box;
+  border: 0;
+  border-bottom: 1px solid #c2c2c2;
+  padding-top: 0;
+  padding-bottom: 0px;
+  background-color: white;
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+}
+.navigation-bar .navbar-nav.override {
+  color: black;
+  font-size: 0.9em;
+  transition: background 0.4s ease-in-out;
+  -webikit-transition: background 0.4s ease-in-out;
+}
+.navigation-bar .navbar-nav.override:hover,
+.navigation-bar .navbar-nav.override:active,
+.navigation-bar .navbar-nav.override:focus {
+  color: white;
+  background-color: black;
+}
+.navigation-bar.transparent {
+  border: 0;
+  background: transparent !important;
+}
+.navigation-bar.transparent .navbar-nav.override {
+  color: white;
+}
+.navigation-bar.transparent .navbar-nav.override.navbar-nav:hover,
+.navigation-bar.transparent .navbar-nav.override.navbar-nav:active,
+.navigation-bar.transparent .navbar-nav.override.navbar-nav:focus {
+  color: black;
+  background-color: white;
+}
+/* navigation bar end */
+footer {
+  position: relative;
+  width: 100%;
+  padding: 3em;
+  background-color: black;
+  color: #cdcdcd;
+  font-size: 0.8em;
+}
+footer .footer-left {
+  text-align: left;
+}
+footer .footer-right {
+  text-align: right;
+}
+footer a {
+  display: inline-block;
+  color: #cdcdcd;
+  margin: 0 1em;
+}
+footer a:hover,
+footer a:active,
+footer a:focus {
+  color: #9a9a9a;
+  text-decoration: none;
+}
+/* reusable asset start */
+.cover {
+  position: relative;
+  padding: 0;
+  height: 60vh;
+  background-size: cover;
+  background-color: black;
+  color: white;
+}
+.cover .content {
+  text-align: center;
+  width: 80%;
+}
+.cover .content h1,
+.cover .content h2,
+.cover .content h3,
+.cover .content h4,
+.cover .content h5,
+.cover .content h6 {
+  font-weight: bolder;
+}
+.cover h1,
+.cover h2,
+.cover h3,
+.cover h4,
+.cover h5,
+.cover h6 {
+  margin: 0;
+}
+.cover .footer {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 2em 0;
+  font-color: white;
+}
+.cover .footer * {
+  font-family: "Lora", 'serif';
+  font-style: italic;
+}
+.content-block {
+  width: 50%;
+  border-bottom: 1px solid #c2c2c2;
+  margin: 0 auto;
+  padding: 3em 0;
+  text-align: center;
+  font-size: 1.3em;
+}
+.content-block img {
+  border-radius: 100%;
+  height: 10em;
+  width: 10em;
+}
+.content-block h1,
+.content-block h2,
+.content-block h3,
+.content-block h4,
+.content-block h5,
+.content-block h6 {
+  font-family: "Lora", serif;
+  font-weight: 900;
+  margin-bottom: 1em;
+}
+.content-block p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+.content-block:last-child {
+  border: 0;
+}
+/* reusable asset end */
+.home.cover {
+  height: 100vh;
+}
+.about.me {
+  height: 8em;
+  width: 8em;
+  margin-bottom: 2em;
+}
+/* Small devices (tablets, 768px and up) */
+/* Medium devices (desktops, 992px and up) */
+/* Large devices (large desktops, 1200px and up) */
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.no-margin {
+  margin: 0;
+}
+.no-padding {
+  padding: 0;
+}
