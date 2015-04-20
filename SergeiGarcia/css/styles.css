@@ -1,5 +1,17 @@
-body {
-  font-family: 'Source Sans Pro', 'sans-serif', 'Arial';
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Slabo 27px', serif;
+}
+p,
+a,
+label {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.8em;
 }
 /* navigation bar start */
 .navigation-bar {
@@ -10,14 +22,14 @@ body {
   padding-top: 0;
   padding-bottom: 0px;
   background-color: white;
-  transition: background 0.25s ease-in-out, padding 0.25s ease-in-out;
-  -webkit-transition: background 0.25s ease-in-out, padding 0.25s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
 }
 .navigation-bar .navbar-nav.override {
   color: black;
   font-size: 0.9em;
-  transition: background 0.25s ease-in-out;
-  -webikit-transition: background 0.25s ease-in-out;
+  transition: background 0.4s ease-in-out;
+  -webikit-transition: background 0.4s ease-in-out;
 }
 .navigation-bar .navbar-nav.override:hover,
 .navigation-bar .navbar-nav.override:active,
@@ -103,15 +115,16 @@ footer a:focus {
   font-color: white;
 }
 .cover .footer * {
-  font-family: "Garamond", 'serif';
+  font-family: "Lora", 'serif';
   font-style: italic;
 }
 .content-block {
-  width: 80%;
+  width: 50%;
   border-bottom: 1px solid #c2c2c2;
   margin: 0 auto;
   padding: 3em 0;
   text-align: center;
+  font-size: 1.3em;
 }
 .content-block img {
   border-radius: 100%;
@@ -124,7 +137,7 @@ footer a:focus {
 .content-block h4,
 .content-block h5,
 .content-block h6 {
-  font-family: "Garamond", serif;
+  font-family: "Lora", serif;
   font-weight: 900;
   margin-bottom: 1em;
 }
@@ -146,11 +159,6 @@ footer a:focus {
 }
 /* Small devices (tablets, 768px and up) */
 /* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  .content-block {
-    width: 40%;
-  }
-}
 /* Large devices (large desktops, 1200px and up) */
 .absolute-center {
   position: absolute;
