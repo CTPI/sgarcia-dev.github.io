@@ -1,6 +1,8 @@
 angular.module('appModule', ['ui.router'])
-	.config(routerConfig);
+	.config(routerConfig)
+	.run(routerSetup);
 
+routerConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 function routerConfig($stateProvider, $urlRouterProvider){
 	new WOW().init();
 	$stateProvider
@@ -31,4 +33,11 @@ function routerConfig($stateProvider, $urlRouterProvider){
 		});
 
 	$urlRouterProvider.otherwise('/home');
+}
+
+routerSetup.$inject = ['$rootScope'];
+function routerSetup($rootScope) {
+	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+		document.getElementById('nav-cover').className = 'nav-cover';
+	});
 }

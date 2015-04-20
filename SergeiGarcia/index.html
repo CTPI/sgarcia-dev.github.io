@@ -24,6 +24,7 @@
 		<script src="js/skills/skillsCtrl.js" defer></script>
 		<script src="js/portfolio/portfolioCtrl.js" defer></script>
 		<script src="js/contact/contactCtrl.js" defer></script>
+		<script src="js/app/navigationDirective.js" defer></script>
 
 		<title>Sergei Garcia | Front End Developer</title>
 	</head>
@@ -46,17 +47,18 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a ui-sref="home" class="navbar-nav override">Home</a></li>
-							<li><a ui-sref="about" class="navbar-nav override">About</a></li>
-							<li><a ui-sref="skills" class="navbar-nav override">Skills</a></li>
-							<li><a ui-sref="portfolio" class="navbar-nav override">Portfolio</a></li>
-							<li><a ui-sref="contact" class="navbar-nav override">Contact</a></li>
+							<li nav-animate nav-to="home"><a class="navbar-nav override">Home</a></li>
+							<li nav-animate nav-to="contact"><a class="navbar-nav override">Contact</a></li>
+							<li nav-animate nav-to="about"><a class="navbar-nav override">About</a></li>
+							<li nav-animate nav-to="skills"><a class="navbar-nav override">Skills</a></li>
+							<li nav-animate nav-to="portfolio"><a class="navbar-nav override">Portfolio</a></li>
 						</ul>
 					</div>
 				</div>
 				<!-- /.navbar-collapse -->
 			</nav>
 		</header>
+		<div id="nav-cover"></div>
 		<main>
 			<ui-view>
 

@@ -25,6 +25,9 @@ label {
   transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
 }
+.navigation-bar .navbar-nav {
+  cursor: pointer;
+}
 .navigation-bar .navbar-nav.override {
   color: black;
   font-size: 0.9em;
@@ -75,6 +78,20 @@ footer a:active,
 footer a:focus {
   color: #9a9a9a;
   text-decoration: none;
+}
+#nav-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 2;
+  background-color: transparent;
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+}
+#nav-cover.active {
+  background: black;
 }
 /* reusable asset start */
 .cover {

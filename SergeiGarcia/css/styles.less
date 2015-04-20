@@ -6,7 +6,7 @@
 @color-muted-gray: #c2c2c2;
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Slabo 27px' , serif;
+	font-family: 'Slabo 27px', serif;
 }
 
 p, a, label {
@@ -26,14 +26,17 @@ p, a, label {
 	background-color: white;
 	transition: all @anim-short ease-in-out;
 	-webkit-transition: all @anim-short ease-in-out;
-	.navbar-nav.override {
-		color: black;
-		font-size: 0.9em;
-		transition: background @anim-short ease-in-out;
-		-webikit-transition: background @anim-short ease-in-out;
-		&:hover, &:active, &:focus {
-			color: white;
-			background-color: black;
+	.navbar-nav {
+		cursor: pointer;
+		&.override {
+			color: black;
+			font-size: 0.9em;
+			transition: background @anim-short ease-in-out;
+			-webikit-transition: background @anim-short ease-in-out;
+			&:hover, &:active, &:focus {
+				color: white;
+				background-color: black;
+			}
 		}
 	}
 	&.transparent {
@@ -50,8 +53,8 @@ p, a, label {
 		}
 	}
 }
-/* navigation bar end */
 
+/* navigation bar end */
 footer {
 	position: relative;
 	width: 100%;
@@ -69,10 +72,25 @@ footer {
 		display: inline-block;
 		color: #cdcdcd;
 		margin: 0 1em;
-		&:hover,&:active, &:focus {
+		&:hover, &:active, &:focus {
 			color: darken(#cdcdcd, 20%);
 			text-decoration: none;
 		}
+	}
+}
+
+#nav-cover {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100%;
+	z-index: 2;
+	background-color: transparent;
+	transition: all @anim-short ease-in-out;
+	-webkit-transition: all @anim-short ease-in-out;
+	&.active {
+		background: black;
 	}
 }
 
@@ -87,10 +105,10 @@ footer {
 	.content {
 		text-align: center;
 		width: 80%;
-		h1,h2,h3,h4,h5,h6 {
+		h1, h2, h3, h4, h5, h6 {
 			font-weight: bolder;
 		}
-		.subtitle{
+		.subtitle {
 
 		}
 	}
@@ -111,6 +129,7 @@ footer {
 		}
 	}
 }
+
 .content-block {
 	width: 50%;
 	border-bottom: 1px solid @color-muted-gray;
@@ -123,7 +142,7 @@ footer {
 		height: 10em;
 		width: 10em;
 	}
-	h1,h2,h3,h4,h5,h6 {
+	h1, h2, h3, h4, h5, h6 {
 		font-family: "Lora", serif;
 		font-weight: 900;
 		margin-bottom: 1em;
@@ -136,6 +155,7 @@ footer {
 		border: 0;
 	}
 }
+
 /* reusable asset end */
 
 // home page
