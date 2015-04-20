@@ -1,5 +1,5 @@
 angular.module('appModule')
-	.controller('portfolioCtrl', portfolioCtrlFunc);
+	.controller('portfolioController', portfolioCtrlFunc);
 
 function portfolioCtrlFunc() {
 	var vm = this;

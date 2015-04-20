@@ -1,4 +1,6 @@
 @anim-short: 0.40s;
+@anim-short-medium: 0.60s;
+@anim-medium : 0.80s;
 @screen-sm-min: 768px;
 @screen-md-min: 992px;
 @screen-lg-min: 1200px;
@@ -24,11 +26,20 @@ p, a, label {
 	padding-top: 0;
 	padding-bottom: 0px;
 	background-color: white;
-	transition: all @anim-short ease-in-out;
-	-webkit-transition: all @anim-short ease-in-out;
-	.navbar-nav {
+	transition: all @anim-short-medium ease-in-out;
+	-webkit-transition: all @anim-short-medium ease-in-out;
+	.logo {
+		font-size: 1em;
+		color: black;
+		cursor: default;
+		&:hover, &:active, &:focus {
+			background-color: transparent;
+			color: black;
+		}
+	}
+	.nav-link {
 		cursor: pointer;
-		&.override {
+		&.nav-link {
 			color: black;
 			font-size: 0.9em;
 			transition: background @anim-short ease-in-out;
@@ -44,12 +55,16 @@ p, a, label {
 		//padding-top: 0.6em;
 		//padding-bottom: 0.6em;
 		background: transparent !important;
-		.navbar-nav.override {
+		.nav-link {
 			color: white;
 			&.navbar-nav:hover, &.navbar-nav:active, &.navbar-nav:focus {
 				color: black;
 				background-color: white;
 			}
+		}
+		.logo {
+			background-color: transparent;
+			color: white;
 		}
 	}
 }

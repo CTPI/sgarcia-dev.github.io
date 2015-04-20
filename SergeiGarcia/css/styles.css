@@ -22,21 +22,32 @@ label {
   padding-top: 0;
   padding-bottom: 0px;
   background-color: white;
-  transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.6s ease-in-out;
+  -webkit-transition: all 0.6s ease-in-out;
 }
-.navigation-bar .navbar-nav {
+.navigation-bar .logo {
+  font-size: 1em;
+  color: black;
+  cursor: default;
+}
+.navigation-bar .logo:hover,
+.navigation-bar .logo:active,
+.navigation-bar .logo:focus {
+  background-color: transparent;
+  color: black;
+}
+.navigation-bar .nav-link {
   cursor: pointer;
 }
-.navigation-bar .navbar-nav.override {
+.navigation-bar .nav-link.nav-link {
   color: black;
   font-size: 0.9em;
   transition: background 0.4s ease-in-out;
   -webikit-transition: background 0.4s ease-in-out;
 }
-.navigation-bar .navbar-nav.override:hover,
-.navigation-bar .navbar-nav.override:active,
-.navigation-bar .navbar-nav.override:focus {
+.navigation-bar .nav-link.nav-link:hover,
+.navigation-bar .nav-link.nav-link:active,
+.navigation-bar .nav-link.nav-link:focus {
   color: white;
   background-color: black;
 }
@@ -44,14 +55,18 @@ label {
   border: 0;
   background: transparent !important;
 }
-.navigation-bar.transparent .navbar-nav.override {
+.navigation-bar.transparent .nav-link {
   color: white;
 }
-.navigation-bar.transparent .navbar-nav.override.navbar-nav:hover,
-.navigation-bar.transparent .navbar-nav.override.navbar-nav:active,
-.navigation-bar.transparent .navbar-nav.override.navbar-nav:focus {
+.navigation-bar.transparent .nav-link.navbar-nav:hover,
+.navigation-bar.transparent .nav-link.navbar-nav:active,
+.navigation-bar.transparent .nav-link.navbar-nav:focus {
   color: black;
   background-color: white;
+}
+.navigation-bar.transparent .logo {
+  background-color: transparent;
+  color: white;
 }
 /* navigation bar end */
 footer {

@@ -38,6 +38,7 @@ function routerConfig($stateProvider, $urlRouterProvider){
 routerSetup.$inject = ['$rootScope'];
 function routerSetup($rootScope) {
 	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+		document.body.scrollTop = document.documentElement.scrollTop = 0;
 		document.getElementById('nav-cover').className = 'nav-cover';
 	});
 }
