@@ -7,12 +7,23 @@ function navAnimateFunc($state, $timeout) {
 		restrict: 'A',
 		link: function(scope, element, attrs) {
 			function navigateTo() {
-				$state.go(attrs.navTo);
+				$state.go(attrs.state);
 			}
 			element.bind('click', function() {
-				document.getElementById("nav-cover").className = 'nav-cover active';
+				if ($state.current.name == attrs.state) {
+					return;
+				}
+				document.getElementById("fade-in-overlay").className = 'nav-cover active';
+				slideout.close();
 				$timeout(navigateTo,500);
 			});
 		}
 	};
 }
+
+var slideout = new Slideout({
+	'panel': document.getElementById('panel'),
+	'menu': document.getElementById('menu'),
+	'padding': 256,
+	'tolerance': 70
+});

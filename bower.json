@@ -16,6 +16,8 @@
     "jquery": "~2.1.3",
     "ui-router": "~0.2.13",
     "animate.css": "~3.2.6",
-    "wow.js": "~1.1.2"
+    "wow.js": "~1.1.2",
+    "hammerjs": "~2.0.4",
+    "slideout.js": "~0.1.6"
   }
 }

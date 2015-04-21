@@ -3,31 +3,31 @@ angular.module('appModule', ['ui.router'])
 	.run(routerSetup);
 
 routerConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
-function routerConfig($stateProvider, $urlRouterProvider){
+function routerConfig($stateProvider, $urlRouterProvider) {
 	new WOW().init();
 	$stateProvider
 		.state('home', {
-			url:'/home',
+			url: '/home',
 			templateUrl: './views/home.html',
 			controller: 'homeController'
 		})
 		.state('about', {
-			url:'/about',
+			url: '/about',
 			templateUrl: './views/about.html',
 			controller: 'aboutController'
 		})
 		.state('skills', {
-			url:'/skills',
+			url: '/skills',
 			templateUrl: './views/skills.html',
 			controller: 'skillsController'
 		})
 		.state('portfolio', {
-			url:'/portfolio',
+			url: '/portfolio',
 			templateUrl: './views/portfolio.html',
 			controller: 'portfolioController'
 		})
 		.state('contact', {
-			url:'/contact',
+			url: '/contact',
 			templateUrl: './views/contact.html',
 			controller: 'contactController'
 		});
@@ -37,8 +37,14 @@ function routerConfig($stateProvider, $urlRouterProvider){
 
 routerSetup.$inject = ['$rootScope'];
 function routerSetup($rootScope) {
-	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+	$rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
 		document.body.scrollTop = document.documentElement.scrollTop = 0;
-		document.getElementById('nav-cover').className = 'nav-cover';
+		document.getElementById('fade-in-overlay').className = 'nav-cover';
 	});
+
+	document.getElementById('menu-toggle').addEventListener("click",
+		function () {
+			slideout.open();
+		}
+	);
 }

@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- vendor -->
 		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Lora|Slabo+27px|Open+Sans:300,400' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -8,11 +10,11 @@
 		<link rel="stylesheet" href="../bower_components/animate.css/animate.min.css"/>
 		<!-- custom -->
 		<link rel="stylesheet" href="css/styles.css"/>
-		<meta charset="UTF-8">
 		<!-- vendor -->
 		<script src="../bower_components/jquery/dist/jquery.js" defer></script>
 		<script src="../bower_components/bootstrap/dist/js/bootstrap.js" defer></script>
-		<script src="../bower_components/wow.js/dist/wow.min.js"></script>
+		<script src="../bower_components/slideout.js/dist/slideout.js" defer></script>
+		<script src="../bower_components/wow.js/dist/wow.min.js" defer></script>
 		<script src="../bower_components/angularjs/angular.js" defer></script>
 		<script src="../bower_components/ui-router/release/angular-ui-router.min.js" defer></script>
 		<!-- custom -->
@@ -29,50 +31,47 @@
 		<title>Sergei Garcia | Front End Developer</title>
 	</head>
 	<body ng-app="appModule">
-		<header>
-			<nav class="navbar navbar-default navbar-fixed-top no-margin transparent hidden-xs navigation-bar" role="navigation">
-				<div class="container">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse"
-						        data-target=".navbar-ex1-collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand navbar-nav logo">Sergei García</a>
-				</div>
-
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse navbar-ex1-collapse">
-						<ul class="nav navbar-nav navbar-right">
-							<li nav-animate nav-to="home"><a class="navbar-nav nav-link">Home</a></li>
-							<li nav-animate nav-to="about"><a class="navbar-nav nav-link">About</a></li>
-							<li nav-animate nav-to="skills"><a class="navbar-nav nav-link">Skills</a></li>
-							<li nav-animate nav-to="portfolio"><a class="navbar-nav nav-link">Portfolio</a></li>
-							<li nav-animate nav-to="contact"><a class="navbar-nav nav-link">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-				<!-- /.navbar-collapse -->
+		<!-- start: Navigation Elements -->
+		<header class="main-header">
+			<nav class="main-nav-navbar"></nav>
+			<nav id="menu" class="main-nav-slideout">
+				<ul>
+					<li nav-animate state="home">HOME</li>
+					<li nav-animate state="about">ABOUT</li>
+					<li nav-animate state="skills">SKILLS</li>
+					<li nav-animate state="portfolio">PORTFOLIO</li>
+					<li nav-animate state="contact">CONTACT</li>
+				</ul>
 			</nav>
 		</header>
-		<div id="nav-cover"></div>
-		<main>
-			<ui-view>
+		<!-- end: Navigation Elements -->
+		<!-- start: Page Content-->
+		<div id="panel" class="main-page-content">
+			<div id="fade-in-overlay"></div>
+			<main class="main-content">
+				<div class="cover-top-left">
+					<label id="menu-toggle" for="menu-toggle" >
+					<h2 class="hidden-xs hidden-sm wow fadeIn" data-wow-delay="1s" data-wow-duration="0.5s">
+						<i class="fa fa-bars"></i>
+					</h2>
+					</label>
+				</div>
+				<ui-view>
 
-			</ui-view>
-		</main>
-		<footer>
-			<div class="container">
-				<div class="col-sm-6 no-padding footer-left">
-					Sites: <a href="">LinkedIn</a> | <a href="">Github</a>| <a href="Twitter">Twitter</a>
+				</ui-view>
+			</main>
+			<!-- start: Page Footer -->
+			<footer class="main-footer">
+				<div class="container">
+					<div class="col-sm-6 no-padding footer-left">
+						Sites: <a href="">LinkedIn</a> | <a href="">Github</a>| <a href="Twitter">Twitter</a>
+					</div>
+					<div class="col-sm-6 no-padding footer-right">
+						Disclaimer information
+					</div>
 				</div>
-				<div class="col-sm-6 no-padding footer-right">
-					Disclaimer information
-				</div>
-			</div>
-		</footer>
+			</footer>
+			<!-- end: Page Footer -->
+		</div>
 	</body>
 </html>
