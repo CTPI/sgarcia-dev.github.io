@@ -2,13 +2,14 @@
 // Variables
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 @anim-short: 0.40s;
-@anim-short-medium: 0.60s;
+@anim-short-medium: 0.30s;
 @anim-medium : 0.80s;
 @screen-xs-min: 320px;
 @screen-sm-min: 768px;
 @screen-md-min: 992px;
 @screen-lg-min: 1200px;
 @color-muted-gray: #c2c2c2;
+@nav-height: 3em;
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Global Styles
@@ -55,10 +56,58 @@ h1, h2, h3, h4, h5, h6 {
 	display: block;
 }
 
-.main-page-content {
-
+.main-nav-desktop {
+	position: fixed;
+	z-index: 3;
+	width: 100%;
+	color: #808080;
+	background-color: white;
+	border-bottom: 1px solid #d6d6d6;
+	transition: all @anim-short-medium ease-in-out;
+	.col-md-9
+	{
+		text-align: right;
+	}
+	.logo {
+		transition: all 0.1s ease-in-out;
+		line-height: @nav-height;
+		transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out, margin @anim-short-medium ease-in-out;
+	}
+	ul {
+		width: 100%;
+		list-style: none;
+		margin: 0;
+		transition: all 0.1s ease-in-out;
+		li {
+			cursor: pointer;
+			height: 100%;
+			line-height: 100%;
+			display: inline-block;
+			padding: 0 2%;
+			line-height: @nav-height;
+			transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out, margin @anim-short-medium ease-in-out;
+			&:hover {
+				color: white;
+				background-color: black;
+			}
+		}
+	}
+	&.transparent {
+		background-color: transparent;
+		border: none;
+		color: #969499;
+		.logo {
+			margin-top: @nav-height;
+		}
+		ul li {
+			margin-top: @nav-height;
+			&:hover {
+				color: white;
+				background: transparent;
+			}
+		}
+	}
 }
-
 .main-nav-slideout {
 	background-color: #1D1D1F;
 	* {

@@ -47,4 +47,17 @@ function routerSetup($rootScope) {
 			slideout.open();
 		}
 	);
+
+	var scrollTop = true;
+	window.addEventListener('scroll', function() {
+		console.log(document.body.scrollTop);
+		if (document.body.scrollTop == 0) {
+			console.log('bingo!');
+			document.getElementById('desktop-navbar').className = 'main-nav-desktop transparent';
+			scrollTop = true;
+		} else if(scrollTop) {
+			document.getElementById('desktop-navbar').className = 'main-nav-desktop';
+			scrollTop = false;
+		}
+	});
 }

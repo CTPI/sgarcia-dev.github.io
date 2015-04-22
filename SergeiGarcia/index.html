@@ -4,8 +4,10 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- vendor -->
-		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Lora|Slabo+27px|Open+Sans:300,400' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Lora|Slabo+27px|Open+Sans:300,400'
+		      rel='stylesheet' type='text/css'>
+		<link rel="stylesheet"
+		      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../bower_components/bootswatch/cosmo/bootstrap.css"/>
 		<link rel="stylesheet" href="../bower_components/animate.css/animate.min.css"/>
 		<!-- custom -->
@@ -28,12 +30,31 @@
 		<script src="js/contact/contactCtrl.js" defer></script>
 		<script src="js/app/navigationDirective.js" defer></script>
 
+
 		<title>Sergei Garcia | Front End Developer</title>
 	</head>
 	<body ng-app="appModule">
 		<!-- start: Navigation Elements -->
 		<header class="main-header">
-			<nav class="main-nav-navbar"></nav>
+			<div id="menu-toggle"></div>
+			<!-- desktop navbar -->
+			<nav id="desktop-navbar" class="main-nav-desktop transparent hidden-xs">
+				<div class="container">
+					<div class="col-xs-3 col-md-3">
+						<div class="logo">Sergei Garcia</div>
+					</div>
+					<div class="col-xs-9 col-md-9">
+						<ul>
+							<li nav-animate state="home">HOME</li>
+							<li nav-animate state="about">ABOUT</li>
+							<li nav-animate state="skills">SKILLS</li>
+							<li nav-animate state="portfolio">PORTFOLIO</li>
+							<li nav-animate state="contact">CONTACT</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<!-- mobile navbar -->
 			<nav id="menu" class="main-nav-slideout">
 				<ul>
 					<li nav-animate state="home">HOME</li>
@@ -48,14 +69,9 @@
 		<!-- start: Page Content-->
 		<div id="panel" class="main-page-content">
 			<div id="fade-in-overlay"></div>
+			<!-- main content  -->
 			<main class="main-content">
-				<div class="cover-top-left">
-					<label id="menu-toggle" for="menu-toggle" >
-					<h2 class="hidden-xs hidden-sm wow fadeIn" data-wow-delay="1s" data-wow-duration="0.5s">
-						<i class="fa fa-bars"></i>
-					</h2>
-					</label>
-				</div>
+
 				<ui-view>
 
 				</ui-view>
@@ -64,7 +80,7 @@
 			<footer class="main-footer">
 				<div class="container">
 					<div class="col-sm-6 no-padding footer-left">
-						Sites: <a href="">LinkedIn</a> | <a href="">Github</a>| <a href="Twitter">Twitter</a>
+						Sites: <a href="">LinkedIn</a> | <a href="">Github</a>| <a href="">Twitter</a>
 					</div>
 					<div class="col-sm-6 no-padding footer-right">
 						Disclaimer information
@@ -72,6 +88,7 @@
 				</div>
 			</footer>
 			<!-- end: Page Footer -->
+
 		</div>
 	</body>
 </html>

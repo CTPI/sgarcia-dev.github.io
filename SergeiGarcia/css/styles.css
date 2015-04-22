@@ -38,6 +38,57 @@ h6 {
 .slideout-open .slideout-menu {
   display: block;
 }
+.main-nav-desktop {
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  color: #808080;
+  background-color: white;
+  border-bottom: 1px solid #d6d6d6;
+  transition: all 0.3s ease-in-out;
+}
+.main-nav-desktop .col-md-9 {
+  text-align: right;
+}
+.main-nav-desktop .logo {
+  transition: all 0.1s ease-in-out;
+  line-height: 3em;
+  transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out, margin 0.3s ease-in-out;
+}
+.main-nav-desktop ul {
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  transition: all 0.1s ease-in-out;
+}
+.main-nav-desktop ul li {
+  cursor: pointer;
+  height: 100%;
+  line-height: 100%;
+  display: inline-block;
+  padding: 0 2%;
+  line-height: 3em;
+  transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out, margin 0.3s ease-in-out;
+}
+.main-nav-desktop ul li:hover {
+  color: white;
+  background-color: black;
+}
+.main-nav-desktop.transparent {
+  background-color: transparent;
+  border: none;
+  color: #969499;
+}
+.main-nav-desktop.transparent .logo {
+  margin-top: 3em;
+}
+.main-nav-desktop.transparent ul li {
+  margin-top: 3em;
+}
+.main-nav-desktop.transparent ul li:hover {
+  color: white;
+  background: transparent;
+}
 .main-nav-slideout {
   background-color: #1D1D1F;
 }
