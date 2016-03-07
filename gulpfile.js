@@ -22,7 +22,7 @@ gulp.task('sass', function() {
 		.pipe(plumber())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer())
-		.pipe(gulp.dest('./dist'));
+		.pipe(gulp.dest('./'));
 });
 
 gulp.task('js', function() {
@@ -32,17 +32,17 @@ gulp.task('js', function() {
 			gutil.log(error);
 		})
 		.pipe(source('bundle.js'))
-		.pipe(gulp.dest('./dist'));
+		.pipe(gulp.dest('./'));
 });
 
 gulp.task('html', function() {
 	gulp.src('src/**/index.html')
 		.pipe(flatten())
-		.pipe(gulp.dest('./dist'));
+		.pipe(gulp.dest('./'));
 	gulp.src('src/**/*-view.html')
 		.pipe(flatten())
-		.pipe(gulp.dest('./dist/views'));
+		.pipe(gulp.dest('./views'));
 	gulp.src('src/**/*-template.html')
 		.pipe(flatten())
-		.pipe(gulp.dest('./dist/templates'));
+		.pipe(gulp.dest('./templates'));
 });
