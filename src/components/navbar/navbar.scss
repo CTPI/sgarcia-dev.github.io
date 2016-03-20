@@ -1,0 +1,13 @@
+sg-navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 80px;
+	background-color: transparent;
+	color: black;
+	border: 1px solid $orange;
+	&.is-active {
+		background-color: $orange;
+	}
+}

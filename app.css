@@ -30,19 +30,17 @@ p {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%); }
 
-.sg-navbar {
-  background-color: #ff7d00;
-  color: white;
-  border: 0;
-  margin: 0;
+sg-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 80px;
-  -webkit-transition: color 1s, background-color 1s, opacity 1s;
-  transition: color 1s, background-color 1s, opacity 1s; }
-  .sg-navbar.transparent {
-    color: black;
-    background-color: transparent; }
-  .sg-navbar .fill-height {
-    height: 80px; }
+  background-color: transparent;
+  color: black;
+  border: 1px solid #ff7d00; }
+  sg-navbar.is-active {
+    background-color: #ff7d00; }
 
 .container-main {
   padding: 0; }

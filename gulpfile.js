@@ -11,7 +11,7 @@ gulp.task('default', ['sass', 'html', 'js', 'dev-watch'], function () {
 	return gutil.log('Gulp Watch service is running!');
 });
 
-gulp.task('dev-watch', function() {
+gulp.task('dev-watch', ['sass', 'html', 'js'], function() {
 	gulp.watch('src/**/*.scss', ['sass']);
 	gulp.watch('src/**/*.html', ['html']);
 	gulp.watch('src/**/*.js', ['js'])
