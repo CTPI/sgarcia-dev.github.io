@@ -222,5 +222,26 @@ body {
       color: black;
       border-bottom: 1px solid darkgray; }
 
-.logo-container {
-  width: 200px; }
+.navbar-hamburger {
+  font-size: 2em;
+  text-align: right; }
+
+.navbar-sidebar {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 80%;
+  right: 0;
+  padding: 1em;
+  background-color: black;
+  color: white;
+  -webkit-transform: translate3d(0, 0, 0) translateX(100%);
+          transform: translate3d(0, 0, 0) translateX(100%);
+  will-change: transform;
+  -webkit-transition: .3s transform;
+  transition: .3s transform; }
+  .navbar-sidebar.is-open {
+    -webkit-transform: translate3d(0, 0, 0) translateX(0%);
+            transform: translate3d(0, 0, 0) translateX(0%); }

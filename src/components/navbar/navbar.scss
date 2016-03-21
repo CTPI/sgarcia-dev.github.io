@@ -25,5 +25,31 @@
 	}
 }
 .logo-container {
-	width: 200px;
+
+}
+
+.navbar-hamburger {
+	font-size: 2em;
+	text-align: right;
+	> span {
+	}
+}
+
+.navbar-sidebar {
+	position: fixed;
+	z-index: 99;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 80%;
+	right: 0;
+	padding: 1em;
+	background-color: $accent-color;
+	color: white;
+	transform: translate3d(0, 0, 0) translateX(100%);
+	will-change: transform;
+	transition: .3s transform;
+	&.is-open {
+		transform: translate3d(0, 0, 0) translateX(0%);
+	}
 }

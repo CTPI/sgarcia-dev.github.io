@@ -15,16 +15,24 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 	<script src="bundle.js"></script>
 </head>
-<body ng-app="sgApp">
+<body ng-app="sgApp" ng-controller="appController as appCtrl">
 <!-- Navbar -->
 <div fill-height class="navbar-container">
 	<nav navbar>
 		<div class="fill-height container">
-			<div class="fill-parent logo-container">
-				<h1 class="v-center logo">SG</h1>
+			<div class="row fill-height">
+				<div class="fill-height col-xs-2 logo-container">
+					<h1 class="v-center logo">SG</h1>
+				</div>
+				<div class="fill-height col-xs-10 hidden-sm hidden-md hidden-lg navbar-hamburger">
+					<span class="glyphicon glyphicon-menu-hamburger v-center" aria-hidden="true" ng-click="appCtrl.openNavSidebar()"></span>
+				</div>
 			</div>
 		</div>
 	</nav>
+	<aside navbar-sidebar class="navbar-sidebar">
+		<h3>{{appCtrl.message}}</h3>
+	</aside>
 </div>
 <!-- Content -->
 <main>
