@@ -87,14 +87,13 @@ body {
   position: relative; }
 
 .cover-background {
-  position: fixed;
   top: 0;
   z-index: -1; }
   .cover-background .background {
     background-color: lightgray; }
 
 .cover-portrait-container {
-  position: fixed;
+  position: absolute;
   bottom: 0; }
 
 .cover-portrait {

@@ -3,7 +3,6 @@
 }
 
 .cover-background {
-	position: fixed;
 	top: 0;
 	z-index: -1;
 
@@ -12,7 +11,7 @@
 	}
 }
 .cover-portrait-container {
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 }
 .cover-portrait {
