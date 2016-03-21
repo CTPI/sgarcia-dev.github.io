@@ -24,6 +24,14 @@
 				<div class="fill-height col-xs-2 logo-container">
 					<h1 class="v-center logo">SG</h1>
 				</div>
+				<div class="fill-height col-xs-10 hidden-xs nav-links">
+					<ul class="fill-parent">
+						<li class="fill-height nav-item"><h4 class="v-center">About Me</h4></li>
+						<li class="fill-height nav-item"><h4 class="v-center">Skills</h4></li>
+						<li class="fill-height nav-item"><h4 class="v-center">Experience</h4></li>
+						<li class="fill-height nav-item"><h4 class="v-center">Contact</h4></li>
+					</ul>
+				</div>
 				<div class="fill-height col-xs-10 hidden-sm hidden-md hidden-lg navbar-hamburger">
 					<span class="glyphicon glyphicon-menu-hamburger v-center" aria-hidden="true" ng-click="appCtrl.openNavSidebar()"></span>
 				</div>
@@ -31,7 +39,17 @@
 		</div>
 	</nav>
 	<aside navbar-sidebar class="navbar-sidebar">
-		<h3>{{appCtrl.message}}</h3>
+		<div class="fill-parent backdrop"></div>
+		<div class="fill-parent content">
+			<nav>
+				<ul>
+					<li class="nav-item"><h3>About Me</h3></li>
+					<li class="nav-item"><h3>Skills</h3></li>
+					<li class="nav-item"><h3>Experience</h3></li>
+					<li class="nav-item"><h3>Contact Me</h3></li>
+				</ul>
+			</nav>
+		</div>
 	</aside>
 </div>
 <!-- Content -->

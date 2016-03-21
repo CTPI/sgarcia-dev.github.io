@@ -214,13 +214,27 @@ body {
     pointer-events: all;
     -webkit-transition: .3s all;
     transition: .3s all; }
+    .navbar-container > nav .nav-item {
+      -webkit-transition: .3s background-color, .3s color, .2s opacity;
+      transition: .3s background-color, .3s color, .2s opacity;
+      cursor: pointer;
+      opacity: 1; }
+      .navbar-container > nav .nav-item:hover {
+        opacity: 0.6; }
     .navbar-container > nav.is-static {
       position: fixed;
       bottom: auto;
       top: 0;
       background-color: white;
       color: black;
-      border-bottom: 1px solid darkgray; }
+      border-bottom: 1px solid black; }
+
+.nav-links ul {
+  list-style: none;
+  padding: 0; }
+  .nav-links ul li {
+    display: inline-block;
+    padding: 0 20px; }
 
 .navbar-hamburger {
   font-size: 2em;
@@ -232,16 +246,35 @@ body {
   top: 0;
   right: 0;
   height: 100%;
-  width: 80%;
-  right: 0;
-  padding: 1em;
-  background-color: black;
+  width: 100%;
   color: white;
-  -webkit-transform: translate3d(0, 0, 0) translateX(100%);
-          transform: translate3d(0, 0, 0) translateX(100%);
-  will-change: transform;
-  -webkit-transition: .3s transform;
-  transition: .3s transform; }
+  pointer-events: none; }
+  .navbar-sidebar .backdrop {
+    background-color: transparent;
+    will-change: background-color;
+    -webkit-transition: 0.3s background-color;
+    transition: 0.3s background-color; }
+  .navbar-sidebar .content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    will-change: transform;
+    -webkit-transition: 0.3s transform;
+    transition: 0.3s transform;
+    background-color: black;
+    padding: 2.5em; }
+    .navbar-sidebar .content ul {
+      list-style: none;
+      padding: 0; }
+      .navbar-sidebar .content ul li {
+        margin-bottom: 1em; }
   .navbar-sidebar.is-open {
-    -webkit-transform: translate3d(0, 0, 0) translateX(0%);
-            transform: translate3d(0, 0, 0) translateX(0%); }
+    pointer-events: all; }
+    .navbar-sidebar.is-open .backdrop {
+      background-color: rgba(0, 0, 0, 0.3); }
+    .navbar-sidebar.is-open .content {
+      -webkit-transform: translateX(0%);
+              transform: translateX(0%); }
