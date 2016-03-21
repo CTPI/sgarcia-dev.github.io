@@ -2,6 +2,7 @@
 	background-color: #DADADA;
 	position: relative;
 }
+
 .cover-title {
 	position: absolute;
 	width: 100%;
@@ -18,28 +19,28 @@
 		font-size: 2em;
 	}
 	.scroll-indicator {
-		display: none;
 		position: absolute;
-		margin-top: 1em;
 		width: 100%;
 		font-size: 3em;
 		animation-name: scroller;
-		animation-duration: 3s;
+		animation-duration: 2s;
 		animation-timing-function: ease-in-out;
 		animation-iteration-count: infinite;
 	}
 }
+
 @keyframes scroller {
 	0% {
-		transform: translateY(-20%)
+		transform: translateY(0%)
 	}
 	50% {
 		transform: translateY(20%);
 	}
 	100% {
-		transform: translateY(-20%);
+		transform: translateY(0%);
 	}
 }
+
 .cover-portrait {
 	position: absolute;
 	width: 100%;
@@ -62,6 +63,10 @@
 	}
 }
 
+.footer {
+	padding-bottom: 160px;
+}
+
 @media (min-width: $screen-sm-min) {
 	.cover-title {
 		text-align: left;
@@ -82,5 +87,11 @@
 	.cover-portrait {
 		height: 80%;
 		text-align: right;
+	}
+}
+
+@media only screen and (max-device-width: $screen-sm-min) and (orientation: landscape) {
+	.cover-title .scroll-indicator {
+		display: none;
 	}
 }

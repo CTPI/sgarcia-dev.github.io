@@ -45,3 +45,13 @@ body {
 	position: relative;
 	background-color: white;
 }
+
+// theme customization
+.progress {
+	border-radius: 0;
+	box-shadow: none;
+	background-color: #CACACA;
+	.progress-bar {
+		background-color: black;
+	}
+}

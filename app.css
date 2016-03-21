@@ -76,6 +76,13 @@ body {
   position: relative;
   background-color: white; }
 
+.progress {
+  border-radius: 0;
+  box-shadow: none;
+  background-color: #CACACA; }
+  .progress .progress-bar {
+    background-color: black; }
+
 .l-cover {
   background-color: #DADADA;
   position: relative; }
@@ -94,15 +101,13 @@ body {
   .cover-title .subtitle {
     font-size: 2em; }
   .cover-title .scroll-indicator {
-    display: none;
     position: absolute;
-    margin-top: 1em;
     width: 100%;
     font-size: 3em;
     -webkit-animation-name: scroller;
             animation-name: scroller;
-    -webkit-animation-duration: 3s;
-            animation-duration: 3s;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
     -webkit-animation-timing-function: ease-in-out;
             animation-timing-function: ease-in-out;
     -webkit-animation-iteration-count: infinite;
@@ -110,25 +115,25 @@ body {
 
 @-webkit-keyframes scroller {
   0% {
-    -webkit-transform: translateY(-20%);
-            transform: translateY(-20%); }
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%); }
   50% {
     -webkit-transform: translateY(20%);
             transform: translateY(20%); }
   100% {
-    -webkit-transform: translateY(-20%);
-            transform: translateY(-20%); } }
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%); } }
 
 @keyframes scroller {
   0% {
-    -webkit-transform: translateY(-20%);
-            transform: translateY(-20%); }
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%); }
   50% {
     -webkit-transform: translateY(20%);
             transform: translateY(20%); }
   100% {
-    -webkit-transform: translateY(-20%);
-            transform: translateY(-20%); } }
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%); } }
 
 .cover-portrait {
   position: absolute;
@@ -148,6 +153,9 @@ body {
     color: white;
     background-color: black; }
 
+.footer {
+  padding-bottom: 160px; }
+
 @media (min-width: 768px) {
   .cover-title {
     text-align: left;
@@ -164,6 +172,10 @@ body {
   .cover-portrait {
     height: 80%;
     text-align: right; } }
+
+@media only screen and (max-device-width: 768px) and (orientation: landscape) {
+  .cover-title .scroll-indicator {
+    display: none; } }
 
 .navbar-container {
   position: absolute;
