@@ -90,6 +90,15 @@ body {
   position: fixed;
   top: 0;
   z-index: -1; }
+  .cover-background .cover-portrait {
+    position: fixed;
+    width: 100%;
+    height: 50%;
+    bottom: 0;
+    right: 0;
+    text-align: center; }
+    .cover-background .cover-portrait > img {
+      height: 100%; }
   .cover-background .background {
     background-color: lightgray; }
 
@@ -140,16 +149,6 @@ body {
   100% {
     -webkit-transform: translateY(0%);
             transform: translateY(0%); } }
-
-.cover-portrait {
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  bottom: 0;
-  right: 0;
-  text-align: center; }
-  .cover-portrait > img {
-    height: 100%; }
 
 .block {
   background-color: white;
