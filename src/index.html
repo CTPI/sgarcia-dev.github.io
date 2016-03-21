@@ -9,7 +9,7 @@
 	<title>Sergei Garcia</title>
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:700,400|Roboto+Light|Roboto:400,100,300'
 		  rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/cosmo/bootstrap.min.css">
 	<link rel="stylesheet" href="app.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 	<script src="bundle.js"></script>
@@ -40,8 +40,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="cover-portrait container">
-			<img src="assets/me_transparent_compressed.png" alt="me">
+		<div class="fill-parent cover-background">
+			<div class="fill-parent background"></div>
+			<div class="cover-portrait container">
+				<img src="assets/me_transparent_compressed.png" alt="me">
+			</div>
 		</div>
 	</div>
 	<!-- Content -->
@@ -94,6 +97,56 @@
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+	<div class="block block-accent">
+		<div class="container">
+			<h1 class="content-header">My Experience</h1>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="card">
+						<h2 class="content-header">Accenture (2014 - Current)</h2>
+						<ul>
+							<li>Developed a mobile application for a private client in the medical area in Xamarin that worked across iOS and Android</li>
+							<li>Worked on a Responsive Website that worked across a variety of devices (mobile, tablet, desktop) for a private client in the medical area utilizing technologies such as jQuery, Foundation and Sass.</li>
+							<li>Worked on a mobile iOS application for a private client in the agriculture area developed in Ionic (Cordova) using technologies such as AngularJS, Bootstrap and Sass. Also contributed to the project's unit testing with Jasmine and Continuous integration start up with Gulp and Docker</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="block">
+		<div class="container">
+			<h1 class="content-header">Contact Me</h1>
+			<form class="well form-horizontal">
+				<fieldset>
+					<div class="form-group">
+						<label for="inputName" class="col-lg-2 control-label">Name</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputName" placeholder="Name" autocomplete="off">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail" class="col-lg-2 control-label">Email</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputEmail" placeholder="Email" autocomplete="off">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="textArea" class="col-lg-2 control-label">Message</label>
+						<div class="col-lg-10">
+							<textarea class="form-control" rows="3" id="textArea"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-10 col-lg-offset-2">
+							<button type="reset" class="btn btn-default">Cancel</button>
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</div>
+					</div>
+				</fieldset>
+			</form>
 		</div>
 	</div>
 </main>

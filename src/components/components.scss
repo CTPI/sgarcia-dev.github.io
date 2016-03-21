@@ -1,6 +1,14 @@
 .l-cover {
-	background-color: #DADADA;
 	position: relative;
+}
+
+.cover-background {
+	position: fixed;
+	top: 0;
+	z-index: -1;
+	.background {
+		background-color: lightgray;
+	}
 }
 
 .cover-title {
@@ -77,6 +85,13 @@
 		height: 60%;
 		text-align: right;
 	}
+}
+
+.card {
+	background-color: white;
+	color: black;
+	padding: 1em;
+	margin-bottom: 1em;
 }
 
 @media (min-width: $screen-md-min) {

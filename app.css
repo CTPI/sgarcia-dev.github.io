@@ -84,8 +84,14 @@ body {
     background-color: black; }
 
 .l-cover {
-  background-color: #DADADA;
   position: relative; }
+
+.cover-background {
+  position: fixed;
+  top: 0;
+  z-index: -1; }
+  .cover-background .background {
+    background-color: lightgray; }
 
 .cover-title {
   position: absolute;
@@ -164,6 +170,12 @@ body {
   .cover-portrait {
     height: 60%;
     text-align: right; } }
+
+.card {
+  background-color: white;
+  color: black;
+  padding: 1em;
+  margin-bottom: 1em; }
 
 @media (min-width: 992px) {
   .cover-title {
