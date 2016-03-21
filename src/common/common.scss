@@ -1,31 +1,47 @@
-.container-main {
+// utility classes
+h1, h2, h3, h4, h5, h6 {
+	&.content-header {
+		margin-bottom: 0.7em;
+	}
+}
+
+.fill-parent {
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+.fill-height {
+	position: relative;
+	height: 100%;
+}
+
+.v-center {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+// html normalization
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
 	padding: 0;
 }
 
-.container-fluid.block {
-	background-color: $orange;
-	color: white;
-	padding-top: 30px;
-	padding-bottom: 30px;
+p {
+	font-size: 1.2em;
+	font-weight: 300;
 }
 
-.sg-cover {
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	* {
-		display: block;
-	}
-}
-
-.container-fluid.sg-footer {
-	padding-top: 40px;
-	padding-bottom: 100px;
-}
-
-@media (min-width: 992px) {
-	.container {
-		width: 750px;
-	}
+body {
+	position: relative;
+	background-color: white;
 }

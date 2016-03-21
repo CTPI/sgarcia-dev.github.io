@@ -1,0 +1,84 @@
+.l-cover {
+	background-color: #DADADA;
+	position: relative;
+}
+.cover-title {
+	position: absolute;
+	width: 100%;
+	height: 50%;
+	top: 0;
+	left: 0;
+	text-align: center;
+	font-size: 1.1em;
+	.title {
+		font-size: 5em;
+		font-weight: 800;
+	}
+	.subtitle {
+		font-size: 2em;
+	}
+	.scroll-indicator {
+		margin-top: 1em;
+		font-size: 3em;
+		display: block;
+		animation-name: scroller;
+		animation-duration: 3s;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: infinite;
+	}
+}
+@keyframes scroller {
+	0% {
+		transform: translateY(-20%)
+	}
+	50% {
+		transform: translateY(20%);
+	}
+	100% {
+		transform: translateY(-20%);
+	}
+}
+.cover-portrait {
+	position: absolute;
+	width: 100%;
+	height: 50%;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+	> img {
+		height: 100%;
+	}
+}
+
+.block {
+	background-color: white;
+	color: black;
+	padding: 50px 0;
+	&.block-accent {
+		color: white;
+		background-color: black;
+	}
+}
+
+@media (min-width: $screen-sm-min) {
+	.cover-title {
+		text-align: left;
+		height: 40%;
+		font-size: 1.4em;
+	}
+	.cover-portrait {
+		height: 60%;
+		text-align: right;
+	}
+}
+
+@media (min-width: $screen-md-min) {
+	.cover-title {
+		height: 100%;
+		font-size: 1.4em;
+	}
+	.cover-portrait {
+		height: 80%;
+		text-align: right;
+	}
+}

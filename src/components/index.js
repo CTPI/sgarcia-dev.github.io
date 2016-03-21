@@ -1,2 +1,3 @@
 angular.module('sg-components', [])
-	.directive('sgNavbar', [require('./navbar/navbar-directive')]);
+    .directive('fillHeight', require('./behaviour/fill-height-directive'))
+    .directive('navbar', require('./navbar/navbar-directive'));

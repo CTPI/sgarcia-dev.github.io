@@ -1,13 +1,26 @@
-sg-navbar {
-	position: fixed;
+.navbar-container {
+	position: absolute;
+	width: 100%;
 	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 80px;
-	background-color: transparent;
-	color: black;
-	border: 1px solid $orange;
-	&.is-active {
-		background-color: $orange;
+	z-index: 99;
+	> nav {
+		position: absolute;
+		bottom: 0;
+		height: 80px;
+		width: 100%;
+		border-bottom: 1px solid transparent;
+		background-color: transparent;
+		color: black;
+		transition: .3s all;
+		&.is-static {
+			position: fixed;
+			bottom: auto;
+			top: 0;
+			background-color: white;
+			color: black;
+		}
 	}
+}
+.logo-container {
+	width: 200px;
 }

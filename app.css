@@ -30,48 +30,160 @@ p {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%); }
 
-sg-navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 80px;
-  background-color: transparent;
-  color: black;
-  border: 1px solid #ff7d00; }
-  sg-navbar.is-active {
-    background-color: #ff7d00; }
+/* Small devices (tablets, 768px and up)
+@media (min-width: @screen-sm-min) {
+}
+ Medium devices (desktops, 992px and up)
+@media (min-width: @screen-md-min) {
+}
 
-.container-main {
+ Large devices (large desktops, 1200px and up)
+@media (min-width: @screen-lg-min) {
+}*/
+h1.content-header, h2.content-header, h3.content-header, h4.content-header, h5.content-header, h6.content-header {
+  margin-bottom: 0.7em; }
+
+.fill-parent {
+  position: relative;
+  height: 100%;
+  width: 100%; }
+
+.fill-height {
+  position: relative;
+  height: 100%; }
+
+.v-center {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%); }
+
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
   padding: 0; }
 
-.container-fluid.block {
-  background-color: #ff7d00;
-  color: white;
-  padding-top: 30px;
-  padding-bottom: 30px; }
+p {
+  font-size: 1.2em;
+  font-weight: 300; }
 
-.sg-cover {
-  height: 100vh;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
-  .sg-cover * {
-    display: block; }
+body {
+  position: relative;
+  background-color: white; }
 
-.container-fluid.sg-footer {
-  padding-top: 40px;
-  padding-bottom: 100px; }
+.l-cover {
+  background-color: #DADADA;
+  position: relative; }
+
+.cover-title {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  font-size: 1.1em; }
+  .cover-title .title {
+    font-size: 5em;
+    font-weight: 800; }
+  .cover-title .subtitle {
+    font-size: 2em; }
+  .cover-title .scroll-indicator {
+    margin-top: 1em;
+    font-size: 3em;
+    display: block;
+    -webkit-animation-name: scroller;
+            animation-name: scroller;
+    -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite; }
+
+@-webkit-keyframes scroller {
+  0% {
+    -webkit-transform: translateY(-20%);
+            transform: translateY(-20%); }
+  50% {
+    -webkit-transform: translateY(20%);
+            transform: translateY(20%); }
+  100% {
+    -webkit-transform: translateY(-20%);
+            transform: translateY(-20%); } }
+
+@keyframes scroller {
+  0% {
+    -webkit-transform: translateY(-20%);
+            transform: translateY(-20%); }
+  50% {
+    -webkit-transform: translateY(20%);
+            transform: translateY(20%); }
+  100% {
+    -webkit-transform: translateY(-20%);
+            transform: translateY(-20%); } }
+
+.cover-portrait {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  bottom: 0;
+  right: 0;
+  text-align: center; }
+  .cover-portrait > img {
+    height: 100%; }
+
+.block {
+  background-color: white;
+  color: black;
+  padding: 50px 0; }
+  .block.block-accent {
+    color: white;
+    background-color: black; }
+
+@media (min-width: 768px) {
+  .cover-title {
+    text-align: left;
+    height: 40%;
+    font-size: 1.4em; }
+  .cover-portrait {
+    height: 60%;
+    text-align: right; } }
 
 @media (min-width: 992px) {
-  .container {
-    width: 750px; } }
+  .cover-title {
+    height: 100%;
+    font-size: 1.4em; }
+  .cover-portrait {
+    height: 80%;
+    text-align: right; } }
+
+.navbar-container {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 99; }
+  .navbar-container > nav {
+    position: absolute;
+    bottom: 0;
+    height: 80px;
+    width: 100%;
+    border-bottom: 1px solid transparent;
+    background-color: transparent;
+    color: black;
+    -webkit-transition: .3s all;
+    transition: .3s all; }
+    .navbar-container > nav.is-static {
+      position: fixed;
+      bottom: auto;
+      top: 0;
+      background-color: white;
+      color: black; }
+
+.logo-container {
+  width: 200px; }
