@@ -246,14 +246,14 @@ body {
 
 .navbar-sidebar {
   position: fixed;
-  z-index: 99;
+  z-index: 1000;
   top: 0;
-  right: 0;
   height: 100%;
   width: 100%;
   color: white;
   pointer-events: none; }
   .navbar-sidebar .backdrop {
+    display: none;
     background-color: transparent;
     -webkit-transform: translateY(0);
             transform: translateY(0);
