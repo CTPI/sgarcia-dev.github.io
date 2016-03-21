@@ -252,14 +252,6 @@ body {
   width: 100%;
   color: white;
   pointer-events: none; }
-  .navbar-sidebar .backdrop {
-    display: none;
-    background-color: transparent;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    will-change: background-color;
-    -webkit-transition: 0.3s background-color;
-    transition: 0.3s background-color; }
   .navbar-sidebar .content {
     position: absolute;
     top: 0;
@@ -279,8 +271,6 @@ body {
         margin-bottom: 1em; }
   .navbar-sidebar.is-open {
     pointer-events: all; }
-    .navbar-sidebar.is-open .backdrop {
-      background-color: rgba(0, 0, 0, 0.3); }
     .navbar-sidebar.is-open .content {
       -webkit-transform: translateZ(0) translateX(0%);
               transform: translateZ(0) translateX(0%); }

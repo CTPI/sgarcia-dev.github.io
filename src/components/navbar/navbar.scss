@@ -62,13 +62,6 @@
 	width: 100%;
 	color: white;
 	pointer-events: none;
-	.backdrop {
-		display: none;
-		background-color: rgba(0,0,0,0);
-		transform: translateY(0);
-		will-change: background-color;
-		transition: 0.3s background-color;
-	}
 	.content {
 		position: absolute;
 		top: 0;
@@ -89,9 +82,6 @@
 	}
 	&.is-open {
 		pointer-events: all;
-		.backdrop {
-			background-color: rgba(0,0,0,0.3);
-		}
 		.content {
 			transform: translateZ(0) translateX(0%);
 		}
