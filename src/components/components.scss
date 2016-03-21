@@ -18,9 +18,11 @@
 		font-size: 2em;
 	}
 	.scroll-indicator {
+		display: none;
+		position: absolute;
 		margin-top: 1em;
+		width: 100%;
 		font-size: 3em;
-		display: block;
 		animation-name: scroller;
 		animation-duration: 3s;
 		animation-timing-function: ease-in-out;

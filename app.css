@@ -94,9 +94,11 @@ body {
   .cover-title .subtitle {
     font-size: 2em; }
   .cover-title .scroll-indicator {
+    display: none;
+    position: absolute;
     margin-top: 1em;
+    width: 100%;
     font-size: 3em;
-    display: block;
     -webkit-animation-name: scroller;
             animation-name: scroller;
     -webkit-animation-duration: 3s;
