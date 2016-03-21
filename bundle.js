@@ -44,6 +44,5 @@ function navbar() {
 },{}],5:[function(require,module,exports){
 angular.module('sgApp')
 	.config(function() {
-
 	});
 },{}]},{},[1]);

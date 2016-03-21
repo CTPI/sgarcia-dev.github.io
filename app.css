@@ -100,7 +100,7 @@ body {
   top: 0;
   left: 0;
   text-align: center;
-  font-size: 1.1em; }
+  font-size: 0.8em; }
   .cover-title .title {
     font-size: 5em;
     font-weight: 800; }
@@ -154,10 +154,12 @@ body {
 .block {
   background-color: white;
   color: black;
-  padding: 50px 0; }
+  padding: 80px 0; }
   .block.block-accent {
     color: white;
     background-color: black; }
+  .block p, .block li {
+    text-align: justify; }
 
 .footer {
   padding-bottom: 160px; }
@@ -177,6 +179,10 @@ body {
   padding: 1em;
   margin-bottom: 1em; }
 
+@media (min-width: 375px) {
+  .cover-title {
+    font-size: 1.0em; } }
+
 @media (min-width: 992px) {
   .cover-title {
     height: 100%;
@@ -186,14 +192,17 @@ body {
     text-align: right; } }
 
 @media only screen and (max-device-width: 768px) and (orientation: landscape) {
-  .cover-title .scroll-indicator {
-    display: none; } }
+  .cover-title {
+    font-size: 0.8em; }
+    .cover-title .scroll-indicator {
+      display: none; } }
 
 .navbar-container {
   position: absolute;
   width: 100%;
   top: 0;
-  z-index: 99; }
+  z-index: 99;
+  pointer-events: none; }
   .navbar-container > nav {
     position: absolute;
     bottom: 0;
@@ -202,6 +211,7 @@ body {
     border-bottom: 1px solid transparent;
     background-color: transparent;
     color: black;
+    pointer-events: all;
     -webkit-transition: .3s all;
     transition: .3s all; }
     .navbar-container > nav.is-static {

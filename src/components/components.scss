@@ -18,7 +18,7 @@
 	top: 0;
 	left: 0;
 	text-align: center;
-	font-size: 1.1em;
+	font-size: 0.8em;
 	.title {
 		font-size: 5em;
 		font-weight: 800;
@@ -64,10 +64,13 @@
 .block {
 	background-color: white;
 	color: black;
-	padding: 50px 0;
+	padding: 80px 0;
 	&.block-accent {
 		color: white;
 		background-color: black;
+	}
+	p, li {
+		text-align: justify;
 	}
 }
 
@@ -94,6 +97,12 @@
 	margin-bottom: 1em;
 }
 
+@media (min-width: $screen-xs-min) {
+	.cover-title {
+		font-size: 1.0em;
+	}
+}
+
 @media (min-width: $screen-md-min) {
 	.cover-title {
 		height: 100%;
@@ -106,7 +115,10 @@
 }
 
 @media only screen and (max-device-width: $screen-sm-min) and (orientation: landscape) {
-	.cover-title .scroll-indicator {
-		display: none;
+	.cover-title {
+		font-size: 0.8em;
+		.scroll-indicator {
+			display: none;
+		}
 	}
 }

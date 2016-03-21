@@ -3,6 +3,7 @@
 	width: 100%;
 	top: 0;
 	z-index: 99;
+	pointer-events: none;
 	> nav {
 		position: absolute;
 		bottom: 0;
@@ -11,6 +12,7 @@
 		border-bottom: 1px solid transparent;
 		background-color: transparent;
 		color: black;
+		pointer-events: all;
 		transition: .3s all;
 		&.is-static {
 			position: fixed;
