@@ -215,6 +215,10 @@ chat {
 			content: url('assets/me-lg-bw.png');
 		}
 	}
+	chat {
+		width: 320px;
+		height: 60%;
+	}
 }
 
 @media only screen and (max-device-width: $screen-sm-min) and (orientation: landscape) {
