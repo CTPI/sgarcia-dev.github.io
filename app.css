@@ -105,7 +105,8 @@ body {
   right: 0;
   text-align: center; }
   .cover-portrait > img {
-    height: 100%; }
+    height: 100%;
+    content: url("assets/me-sm-bw.png"); }
 
 .cover-title {
   position: absolute;
@@ -168,15 +169,6 @@ body {
 .footer {
   padding-bottom: 160px; }
 
-@media (min-width: 768px) {
-  .cover-title {
-    text-align: left;
-    height: 40%;
-    font-size: 1.4em; }
-  .cover-portrait {
-    height: 60%;
-    text-align: right; } }
-
 .card {
   background-color: white;
   color: black;
@@ -187,13 +179,26 @@ body {
   .cover-title {
     font-size: 1.0em; } }
 
+@media (min-width: 768px) {
+  .cover-title {
+    text-align: left;
+    height: 40%;
+    font-size: 1.4em; }
+  .cover-portrait {
+    height: 60%;
+    text-align: right; }
+    .cover-portrait > img {
+      content: url("assets/me-md-bw.png"); } }
+
 @media (min-width: 992px) {
   .cover-title {
     height: 100%;
     font-size: 1.4em; }
   .cover-portrait {
     height: 80%;
-    text-align: right; } }
+    text-align: right; }
+    .cover-portrait > img {
+      content: url("assets/me-lg-bw.png"); } }
 
 @media only screen and (max-device-width: 768px) and (orientation: landscape) {
   .cover-title {
