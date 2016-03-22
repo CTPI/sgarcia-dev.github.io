@@ -166,14 +166,112 @@ body {
   .block p, .block li {
     text-align: justify; }
 
-.footer {
-  padding-bottom: 160px; }
-
 .card {
   background-color: white;
   color: black;
   padding: 1em;
   margin-bottom: 1em; }
+
+chat-bubble {
+  position: fixed;
+  height: 80px;
+  width: 80px;
+  border-radius: 80px;
+  background-image: url("assets/avatar.jpg");
+  background-size: cover;
+  bottom: 25px;
+  right: 25px;
+  box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.4);
+  z-index: 150;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform .4s ease-out;
+  transition: -webkit-transform .4s ease-out;
+  transition: transform .4s ease-out;
+  transition: transform .4s ease-out, -webkit-transform .4s ease-out; }
+  chat-bubble.is-visible {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  chat-bubble .notification {
+    position: absolute;
+    background-color: #FF8A00;
+    color: #FFF;
+    right: 100px;
+    bottom: 23px;
+    width: 200px;
+    height: 33px;
+    border-radius: 4px;
+    padding: 4px 9px;
+    box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.2);
+    will-change: transform;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-transform-origin: right;
+            transform-origin: right;
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.54, 0.37, 0.37, 0.99);
+    transition: -webkit-transform 0.3s cubic-bezier(0.54, 0.37, 0.37, 0.99);
+    transition: transform 0.3s cubic-bezier(0.54, 0.37, 0.37, 0.99);
+    transition: transform 0.3s cubic-bezier(0.54, 0.37, 0.37, 0.99), -webkit-transform 0.3s cubic-bezier(0.54, 0.37, 0.37, 0.99); }
+    chat-bubble .notification.has-notification {
+      -webkit-transform: scale(1);
+              transform: scale(1); }
+
+chat {
+  position: fixed;
+  height: calc(100% - 160px);
+  width: calc(100% - 60px);
+  background-color: white;
+  box-shadow: 3px 3px 7px 2px rgba(0, 0, 0, 0.2);
+  bottom: 130px;
+  right: 30px;
+  z-index: 140;
+  will-change: transform;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.54, 0.37, 0.37, 0.99);
+  transition: -webkit-transform 0.4s cubic-bezier(0.54, 0.37, 0.37, 0.99);
+  transition: transform 0.4s cubic-bezier(0.54, 0.37, 0.37, 0.99);
+  transition: transform 0.4s cubic-bezier(0.54, 0.37, 0.37, 0.99), -webkit-transform 0.4s cubic-bezier(0.54, 0.37, 0.37, 0.99); }
+  chat.is-active {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  chat .title-bar {
+    height: 50px;
+    display: block;
+    background-color: gray;
+    padding: 0 10px; }
+    chat .title-bar .title {
+      font-family: 'Roboto';
+      font-weight: 300;
+      display: inline-block;
+      color: white; }
+  chat .chat-content {
+    width: 100%;
+    height: calc(100% - 100px);
+    display: block; }
+  chat .chat-input {
+    display: block;
+    width: 100%;
+    height: 50px;
+    border: 0;
+    padding: 0 15px;
+    background-color: #e6e6e6; }
+    chat .chat-input + .glyphicon {
+      position: relative;
+      top: -39px;
+      left: calc(100% - 58px);
+      display: inline-block;
+      height: 50px;
+      width: 50px;
+      text-align: center;
+      font-size: 27px;
+      color: gray;
+      vertical-align: middle; }
+
+.footer {
+  padding-bottom: 160px; }
 
 @media (min-width: 375px) {
   .cover-title {
@@ -251,7 +349,7 @@ body {
 
 .navbar-sidebar {
   position: fixed;
-  z-index: 1000;
+  z-index: 199;
   top: 0;
   height: 100%;
   width: 100%;

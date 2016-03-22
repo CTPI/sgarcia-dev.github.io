@@ -35,20 +35,20 @@
 			</div>
 		</div>
 	</nav>
-	<aside navbar-sidebar class="navbar-sidebar">
-		<div class="fill-parent backdrop"></div>
-		<div class="fill-parent content">
-			<nav>
-				<ul>
-					<li class="nav-item" ng-click="appCtrl.scrollTo('#l-about-me')"><h3>About Me</h3></li>
-					<li class="nav-item" ng-click="appCtrl.scrollTo('#l-skills')"><h3>Skills</h3></li>
-					<li class="nav-item" ng-click="appCtrl.scrollTo('#l-experience')"><h3>Experience</h3></li>
-					<li class="nav-item" ng-click="appCtrl.scrollTo('#l-contact')"><h3>Contact Me</h3></li>
-				</ul>
-			</nav>
-		</div>
-	</aside>
 </div>
+<aside navbar-sidebar class="navbar-sidebar">
+	<div class="fill-parent backdrop"></div>
+	<div class="fill-parent content">
+		<nav>
+			<ul>
+				<li class="nav-item" ng-click="appCtrl.scrollTo('#l-about-me')"><h3>About Me</h3></li>
+				<li class="nav-item" ng-click="appCtrl.scrollTo('#l-skills')"><h3>Skills</h3></li>
+				<li class="nav-item" ng-click="appCtrl.scrollTo('#l-experience')"><h3>Experience</h3></li>
+				<li class="nav-item" ng-click="appCtrl.scrollTo('#l-contact')"><h3>Contact Me</h3></li>
+			</ul>
+		</nav>
+	</div>
+</aside>
 <!-- Content -->
 <main>
 	<!-- Cover -->
@@ -176,6 +176,19 @@
 		</div>
 	</div>
 </main>
+<div class="l-chat">
+	<chat>
+		<div class="title-bar">
+			<h4	class="v-center title">What can I help you with?</h4>
+		</div>
+		<div class="chat-content"></div>
+		<input class="chat-input" type="text" placeholder="Message">
+		<span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+	</chat>
+	<chat-bubble>
+		<div class="notification">you have a new message</div>
+	</chat-bubble>
+</div>
 <footer class="block block-accent footer">
 	<div class="container">
 		<h6>© 2016 Sergei Garcia. All rights reserved. Front-End Developer</h6>

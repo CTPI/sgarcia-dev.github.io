@@ -5,7 +5,7 @@ require('./common');
 require('./components');
 angular.module('sgApp', ['sg-components']);
 require('./config');
-},{"./common":3,"./components":7,"./config":10}],2:[function(require,module,exports){
+},{"./common":3,"./components":10,"./config":13}],2:[function(require,module,exports){
 module.exports = eventFactory;
 
 function eventFactory() {
@@ -138,12 +138,65 @@ function fillHeight() {
     }
 }
 },{}],7:[function(require,module,exports){
+module.exports = chatBubble;
+function chatBubble(eventFactory) {
+    return {
+        restrict: 'AE',
+        link: function(scope, el) {
+            var notification = angular.element(document.querySelector('chat-bubble > .notification'));
+            setTimeout(function() {
+                el.addClass('is-visible');
+                setTimeout(function() {
+                    notification.addClass('has-notification');
+                }, 1000);
+            }, 2000);
+            el.on('click', function () {
+                if (notification.hasClass('has-notification'))
+                    notification.removeClass('has-notification');
+                eventFactory.dispatch('chat-window', {
+                    action: 'toggle'
+                });
+            });
+        }
+    }
+}
+},{}],8:[function(require,module,exports){
+module.exports = ChatController;
+function ChatController() {
+    var vm = this;
+}
+},{}],9:[function(require,module,exports){
+module.exports = chat;
+function chat(eventFactory) {
+    return {
+        restrict: 'AE',
+        link: function(scope, el) {
+            eventFactory.listen('chat-window', function(data) {
+                switch(data.action) {
+                    case 'open':
+                        if (!el.hasClass('is-active'))
+                            el.addClass('is-active');
+                        break;
+                    case 'close':
+                        break;
+                    case 'toggle':
+                        el.toggleClass('is-active');
+                        break;
+                }
+            });
+        }
+    }
+}
+},{}],10:[function(require,module,exports){
 angular.module('sg-components', ['common'])
     .controller('appController', ['eventFactory', 'scrollFactory', require('./app-controller')])
+    .controller('chatController', ['eventFactory', require('./chat/chat-controller')])
     .directive('fillHeight', require('./behaviour/fill-height-directive'))
     .directive('navbar', require('./navbar/navbar-directive'))
-    .directive('navbarSidebar', ['eventFactory', require('./navbar/navbar-sidebar-directive')]);
-},{"./app-controller":5,"./behaviour/fill-height-directive":6,"./navbar/navbar-directive":8,"./navbar/navbar-sidebar-directive":9}],8:[function(require,module,exports){
+    .directive('navbarSidebar', ['eventFactory', require('./navbar/navbar-sidebar-directive')])
+    .directive('chat', ['eventFactory', require('./chat/chat-directive')])
+    .directive('chatBubble', ['eventFactory', require('./chat/chat-bubble-directive')]);
+},{"./app-controller":5,"./behaviour/fill-height-directive":6,"./chat/chat-bubble-directive":7,"./chat/chat-controller":8,"./chat/chat-directive":9,"./navbar/navbar-directive":11,"./navbar/navbar-sidebar-directive":12}],11:[function(require,module,exports){
 module.exports = navbar;
 
 function navbar() {
@@ -164,7 +217,7 @@ function navbar() {
         }
     };
 }
-},{}],9:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 module.exports = navbarSidebar;
 
 function navbarSidebar(eventFactory) {
@@ -184,7 +237,7 @@ function navbarSidebar(eventFactory) {
         }
     }
 }
-},{}],10:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 angular.module('sgApp')
 	.config(function() {
 	});
