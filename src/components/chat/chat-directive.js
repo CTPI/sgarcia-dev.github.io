@@ -10,6 +10,8 @@ function chat(eventFactory) {
                             el.addClass('is-active');
                         break;
                     case 'close':
+                        if (el.hasClass('is-active'))
+                            el.removeClass('is-active');
                         break;
                     case 'toggle':
                         el.toggleClass('is-active');

@@ -179,14 +179,14 @@
 <div class="l-chat">
 	<chat>
 		<div class="title-bar">
-			<h4	class="v-center title">What can I help you with?</h4>
+			<h4	class="v-center title">Chat</h4>
 		</div>
 		<div class="chat-content"></div>
 		<input class="chat-input" type="text" placeholder="Message">
 		<span class="glyphicon glyphicon-send" aria-hidden="true"></span>
 	</chat>
 	<chat-bubble>
-		<div class="notification">you have a new message</div>
+		<div class="notification">{{chatBubbleCtrl.message}}</div>
 	</chat-bubble>
 </div>
 <footer class="block block-accent footer">
