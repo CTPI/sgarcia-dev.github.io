@@ -415,7 +415,7 @@ chat {
     will-change: transform;
     -webkit-transition: 0.3s transform;
     transition: 0.3s transform;
-    background-color: #FF5722;
+    background-color: #262626;
     padding: 2.5em; }
     .navbar-sidebar .content ul {
       list-style: none;
