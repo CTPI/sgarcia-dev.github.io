@@ -5,4 +5,4 @@ angular.module('sg-components', ['common'])
     .directive('navbar', require('./navbar/navbar-directive'))
     .directive('navbarSidebar', ['eventFactory', require('./navbar/navbar-sidebar-directive')])
     .directive('chat', ['eventFactory', require('./chat/chat-directive')])
-    .directive('chatBubble', ['eventFactory', require('./chat/chat-bubble-directive')]);
+    .directive('chatBubble', ['eventFactory', 'gestureFactory', require('./chat/chat-bubble-directive')]);

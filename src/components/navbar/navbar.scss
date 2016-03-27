@@ -87,3 +87,9 @@
 		}
 	}
 }
+
+@media (min-width: $screen-sm-min) {
+	.navbar-sidebar {
+		display: none;
+	}
+}

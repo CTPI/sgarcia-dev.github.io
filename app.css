@@ -83,60 +83,92 @@ body {
   .progress .progress-bar {
     background-color: #FF5722; }
 
-chat-bubble {
-  position: fixed;
+chat-bubble.is-hidden .chat-bubble-btn {
+  -webkit-transform: scale(0);
+          transform: scale(0); }
+
+chat-bubble.default .chat-bubble-btn {
+  -webkit-transform: scale(1);
+          transform: scale(1); }
+
+chat-bubble.has-notification .chat-bubble-btn {
+  -webkit-transform: scale(1);
+          transform: scale(1); }
+
+chat-bubble.has-notification .notification {
+  -webkit-transform: scale(1);
+          transform: scale(1); }
+
+chat-bubble.is-long-press .chat-bubble-btn {
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+  -webkit-transition: -webkit-transform .2s ease-out;
+  transition: -webkit-transform .2s ease-out;
+  transition: transform .2s ease-out;
+  transition: transform .2s ease-out, -webkit-transform .2s ease-out; }
+
+chat-bubble.is-long-press .close-btn {
+  -webkit-transform: scale(1);
+          transform: scale(1); }
+
+chat-bubble .chat-bubble-btn {
   height: 80px;
   width: 80px;
   border-radius: 80px;
+  box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.4);
+  cursor: pointer;
   background-image: url("assets/avatar.jpg");
   background-size: cover;
   bottom: 25px;
   right: 25px;
-  box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.4);
   z-index: 150;
-  cursor: pointer;
   -webkit-transform: scale(0);
           transform: scale(0);
   -webkit-transition: -webkit-transform .4s ease-out;
   transition: -webkit-transform .4s ease-out;
   transition: transform .4s ease-out;
-  transition: transform .4s ease-out, -webkit-transform .4s ease-out; }
-  chat-bubble.default {
-    -webkit-transform: scale(1);
-            transform: scale(1); }
-  chat-bubble.has-notification {
-    -webkit-transform: scale(1);
-            transform: scale(1); }
-    chat-bubble.has-notification .notification {
-      -webkit-transform: scale(1);
-              transform: scale(1); }
-  chat-bubble.is-long-press {
-    -webkit-transition: -webkit-transform .2s ease-out;
-    transition: -webkit-transform .2s ease-out;
-    transition: transform .2s ease-out;
-    transition: transform .2s ease-out, -webkit-transform .2s ease-out;
-    -webkit-transform: scale(0.7);
-            transform: scale(0.7); }
-  chat-bubble .notification {
-    position: absolute;
-    background-color: #FF8A00;
-    color: #FFF;
-    right: 100px;
-    bottom: 23px;
-    width: 200px;
-    height: 33px;
-    border-radius: 4px;
-    padding: 4px 9px;
-    box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.2);
-    will-change: transform;
-    -webkit-transform: scale(0);
-            transform: scale(0);
-    -webkit-transform-origin: right;
-            transform-origin: right;
-    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.54, 0.37, 0.37, 0.99);
-    transition: -webkit-transform 0.3s cubic-bezier(0.54, 0.37, 0.37, 0.99);
-    transition: transform 0.3s cubic-bezier(0.54, 0.37, 0.37, 0.99);
-    transition: transform 0.3s cubic-bezier(0.54, 0.37, 0.37, 0.99), -webkit-transform 0.3s cubic-bezier(0.54, 0.37, 0.37, 0.99); }
+  transition: transform .4s ease-out, -webkit-transform .4s ease-out;
+  position: fixed; }
+
+chat-bubble .close-btn {
+  height: 80px;
+  width: 80px;
+  border-radius: 80px;
+  box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  background-color: #FF5722;
+  position: fixed;
+  right: 130px;
+  bottom: 25px;
+  -webkit-transition: -webkit-transform .4s ease-out;
+  transition: -webkit-transform .4s ease-out;
+  transition: transform .4s ease-out;
+  transition: transform .4s ease-out, -webkit-transform .4s ease-out;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  color: white;
+  text-align: center; }
+
+chat-bubble .notification {
+  position: absolute;
+  background-color: #FF8A00;
+  color: #FFF;
+  right: 100px;
+  bottom: 23px;
+  width: 200px;
+  height: 33px;
+  border-radius: 4px;
+  padding: 4px 9px;
+  box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.2);
+  will-change: transform;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.54, 0.37, 0.37, 0.99);
+  transition: -webkit-transform 0.3s cubic-bezier(0.54, 0.37, 0.37, 0.99);
+  transition: transform 0.3s cubic-bezier(0.54, 0.37, 0.37, 0.99);
+  transition: transform 0.3s cubic-bezier(0.54, 0.37, 0.37, 0.99), -webkit-transform 0.3s cubic-bezier(0.54, 0.37, 0.37, 0.99); }
 
 chat {
   position: fixed;
@@ -391,3 +423,7 @@ chat {
     .navbar-sidebar.is-open .content {
       -webkit-transform: translateZ(0) translateX(0%);
               transform: translateZ(0) translateX(0%); }
+
+@media (min-width: 768px) {
+  .navbar-sidebar {
+    display: none; } }

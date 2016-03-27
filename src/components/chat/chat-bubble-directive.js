@@ -1,5 +1,6 @@
 module.exports = chatBubble;
-function chatBubble(eventFactory) {
+var hammer = require('hammerjs');
+function chatBubble(eventFactory, gestureFactory) {
     return {
         restrict: 'AE',
         controller: function() {
@@ -8,57 +9,34 @@ function chatBubble(eventFactory) {
         },
         controllerAs: 'chatBubbleCtrl',
         link: function(scope, el) {
-            var longPressTimer,
-                isLongPress = false,
-                clickDisabled = false,
-                _currentState = '',
-                chatIsOpen = false;
-            el.notification = angular.element(document.querySelector('chat-bubble > .notification'));
+            var _currentState = '';
             function setState(state) {
                 el.removeClass(_currentState || '');
                 el.addClass(state);
                 _currentState = state;
             }
-            // dummy message
-            setTimeout(function() {
+            setState('default');
+            var hammerChatBubble = new hammer(document.querySelector('.chat-bubble-btn')),
+                closeButton = new hammer(document.querySelector('chat-bubble > .close-btn'));
+            hammerChatBubble.on('tap', function() {
+                if(_currentState === 'is-long-press')
+                    return setState('default');
                 setState('default');
-                setTimeout(function() {
-                    setState('has-notification');
-                }, 200);
-            }, 2000);
-            // on click
-            el.on('click', function () {
-                if (clickDisabled)
-                    return;
-                isLongPress = false;
-                setState('default');
-                if (!chatIsOpen) {
-                    eventFactory.dispatch('chat-window', { action: 'open' });
-                    chatIsOpen = !chatIsOpen;
-                }
-                else {
-                    eventFactory.dispatch('chat-window', { action: 'close' });
-                    chatIsOpen = !chatIsOpen;
-                }
+                eventFactory.dispatch('chat-window', { action: 'toggle' });
             });
-            // long press functionality
-            el.on('mousedown', function (e) {
-                longPressTimer = window.setTimeout(function() {
-                    e.stopPropagation();
-                    isLongPress = !isLongPress;
-                    if (isLongPress) {
-                        eventFactory.dispatch('chat-window', { action: 'close' });
-                        setState('is-long-press');
-                        clickDisabled = true;
-                    }
-                }, 400);
+            closeButton.on('tap', function() {
+                setState('is-hidden');
+                eventFactory.dispatch('chat-window', { action: 'close' });
             });
-            el.on('mouseup', function() {
-                clearTimeout(longPressTimer);
-                if (isLongPress) {
-                    window.setTimeout(function() {
-                        clickDisabled = false;
-                    }, 50);
+            hammerChatBubble.on('press', function() {
+                setState('is-long-press');
+                eventFactory.dispatch('chat-window', { action: 'close' });
+            });
+            eventFactory.listen('chat-bubble', function(data) {
+                if (data.action === 'show') {
+                    setState('default');
+                } else if(data.action === 'hide') {
+                    setState('is-hidden');
                 }
             });
         }

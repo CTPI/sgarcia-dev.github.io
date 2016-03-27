@@ -1,29 +1,59 @@
-chat-bubble {
-	position: fixed;
+@mixin bubble {
 	height: 80px;
 	width: 80px;
 	border-radius: 80px;
-	background-image: url('assets/avatar.jpg');
-	background-size: cover;
-	bottom: 25px;
-	right: 25px;
 	box-shadow: 3px 3px 7px 0 rgba(0,0,0,0.4);
-	z-index: 150;
 	cursor: pointer;
-	transform: scale(0);
-	transition: transform .4s ease-out;
+}
+chat-bubble {
+	&.is-hidden {
+		.chat-bubble-btn {
+			transform: scale(0);
+		}
+	}
 	&.default {
-		transform: scale(1);
+		.chat-bubble-btn {
+			transform: scale(1);
+		}
 	}
 	&.has-notification {
-		transform: scale(1);
+		.chat-bubble-btn {
+			transform: scale(1);
+		}
 		.notification {
 			transform: scale(1);
 		}
 	}
 	&.is-long-press {
-		transition: transform .2s ease-out;
-		transform: scale(0.7);
+		.chat-bubble-btn {
+			transform: scale(0.7);
+			transition: transform .2s ease-out;
+		}
+		.close-btn {
+			transform: scale(1);
+		}
+	}
+	.chat-bubble-btn {
+		@include bubble;
+		background-image: url('assets/avatar.jpg');
+		background-size: cover;
+		bottom: 25px;
+		right: 25px;
+		z-index: 150;
+		transform: scale(0);
+		transition: transform .4s ease-out;
+		position: fixed;
+	}
+	.close-btn {
+		@include bubble;
+		background-color: $accent-color-dark;
+		position: fixed;
+		right: 80px + 25px + 25px;
+		bottom: 25px;
+		transition: transform .4s ease-out;
+		transform: scale(0);
+		color: white;
+		text-align: center;
 	}
 	.notification {
 		position: absolute;
