@@ -50,7 +50,9 @@
 .navbar-hamburger {
 	font-size: 2em;
 	text-align: right;
-	> span {
+	> .material-icons {
+		display: block;
+		font-size: 1.3em;
 	}
 }
 

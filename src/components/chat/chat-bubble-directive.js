@@ -16,6 +16,7 @@ function chatBubble(eventFactory, gestureFactory) {
                 _currentState = state;
             }
             setState('default');
+            // eventFactory.dispatch('chat-window', { action: 'open' });
             var hammerChatBubble = new hammer(document.querySelector('.chat-bubble-btn')),
                 closeButton = new hammer(document.querySelector('chat-bubble > .close-btn'));
             hammerChatBubble.on('tap', function() {
@@ -37,6 +38,9 @@ function chatBubble(eventFactory, gestureFactory) {
                     setState('default');
                 } else if(data.action === 'hide') {
                     setState('is-hidden');
+                } else if(data.action === 'open') {
+                    setState('default');
+                    eventFactory.dispatch('chat-window', { action: 'open' });
                 }
             });
         }

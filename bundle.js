@@ -2702,7 +2702,10 @@ function MainController(eventFactory, scrollFactory) {
 
     vm.scrollTo = function (selector) {
         scrollFactory.scrollTo(selector, 600);
-    }
+    };
+    vm.openChatBubble = function() {
+        eventFactory.dispatch('chat-bubble', { action: 'open' });
+    };
 }
 },{}],8:[function(require,module,exports){
 module.exports = fillHeight;
@@ -2735,6 +2738,7 @@ function chatBubble(eventFactory, gestureFactory) {
                 _currentState = state;
             }
             setState('default');
+            // eventFactory.dispatch('chat-window', { action: 'open' });
             var hammerChatBubble = new hammer(document.querySelector('.chat-bubble-btn')),
                 closeButton = new hammer(document.querySelector('chat-bubble > .close-btn'));
             hammerChatBubble.on('tap', function() {
@@ -2756,6 +2760,9 @@ function chatBubble(eventFactory, gestureFactory) {
                     setState('default');
                 } else if(data.action === 'hide') {
                     setState('is-hidden');
+                } else if(data.action === 'open') {
+                    setState('default');
+                    eventFactory.dispatch('chat-window', { action: 'open' });
                 }
             });
         }
@@ -2771,6 +2778,11 @@ module.exports = chat;
 function chat(eventFactory) {
     return {
         restrict: 'AE',
+        controller: function() {
+            var vm = this;
+            vm.input = '';
+        },
+        controllerAs: 'chatCtrl',
         link: function(scope, el) {
             eventFactory.listen('chat-window', function(data) {
                 switch(data.action) {

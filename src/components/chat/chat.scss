@@ -46,7 +46,7 @@ chat-bubble {
 	}
 	.close-btn {
 		@include bubble;
-		background-color: $accent-color-dark;
+		background-color: $accent-light-color;
 		position: fixed;
 		right: 80px + 25px + 25px;
 		bottom: 25px;
@@ -54,6 +54,7 @@ chat-bubble {
 		transform: scale(0);
 		color: white;
 		text-align: center;
+		z-index: 150;
 	}
 	.notification {
 		position: absolute;

@@ -2,6 +2,11 @@ module.exports = chat;
 function chat(eventFactory) {
     return {
         restrict: 'AE',
+        controller: function() {
+            var vm = this;
+            vm.input = '';
+        },
+        controllerAs: 'chatCtrl',
         link: function(scope, el) {
             eventFactory.listen('chat-window', function(data) {
                 switch(data.action) {

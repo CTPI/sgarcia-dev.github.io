@@ -26,11 +26,11 @@
 						<li class="fill-height nav-item" ng-click="appCtrl.scrollTo('#l-about-me')"><h4 class="v-center">About Me</h4></li>
 						<li class="fill-height nav-item" ng-click="appCtrl.scrollTo('#l-skills')"><h4 class="v-center">Skills</h4></li>
 						<li class="fill-height nav-item" ng-click="appCtrl.scrollTo('#l-experience')"><h4 class="v-center">Experience</h4></li>
-						<li class="fill-height nav-item" ng-click="appCtrl.scrollTo('#l-contact')"><h4 class="v-center">Contact</h4></li>
+						<li class="fill-height nav-item" ng-click="appCtrl.openChatBubble()"><h4 class="v-center">Contact</h4></li>
 					</ul>
 				</div>
 				<div class="fill-height col-xs-10 hidden-sm hidden-md hidden-lg navbar-hamburger">
-					<span class="glyphicon glyphicon-menu-hamburger v-center" aria-hidden="true" ng-click="appCtrl.openNavSidebar()"></span>
+					<i class="material-icons v-center" ng-click="appCtrl.openNavSidebar()">menu</i>
 				</div>
 			</div>
 		</div>
@@ -44,7 +44,7 @@
 				<li class="nav-item" ng-click="appCtrl.scrollTo('#l-about-me')"><h3>About Me</h3></li>
 				<li class="nav-item" ng-click="appCtrl.scrollTo('#l-skills')"><h3>Skills</h3></li>
 				<li class="nav-item" ng-click="appCtrl.scrollTo('#l-experience')"><h3>Experience</h3></li>
-				<li class="nav-item" ng-click="appCtrl.scrollTo('#l-contact')"><h3>Contact Me</h3></li>
+				<li class="nav-item" ng-click="appCtrl.openChatBubble()"><h3>Contact Me</h3></li>
 			</ul>
 		</nav>
 	</div>
@@ -127,7 +127,7 @@
 	</div>
 	<div id="l-experience" class="block block-accent l-experience">
 		<div class="container">
-			<h1 class="content-header">My Experience</h1>
+			<h1 class="content-header">Experience</h1>
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="card">
@@ -144,7 +144,7 @@
 	</div>
 	<div id="l-contact" class="block l-contact">
 		<div class="container">
-			<h1 class="content-header">Contact Me</h1>
+			<h1 class="content-header">Portfolio</h1>
 			<form class="well form-horizontal">
 				<fieldset>
 					<div class="form-group">
@@ -181,13 +181,15 @@
 		<div class="title-bar">
 			<h4	class="v-center title">Chat</h4>
 		</div>
-		<div class="chat-content"></div>
-		<input class="chat-input" type="text" placeholder="Message">
+		<div class="chat-content">
+			<span ng-bind="chatCtrl.input"></span>
+		</div>
+		<input class="chat-input" type="text" placeholder="Message" ng-model="chatCtrl.input">
 		<span class="glyphicon glyphicon-send" aria-hidden="true"></span>
 	</chat>
 	<chat-bubble>
 		<div class="chat-bubble-btn"></div>
-		<div class="close-btn"><span class="glyphicon glyphicon-plus v-center" aria-hidden="true"></span></div>
+		<div class="close-btn"><i class="material-icons v-center">close</i></div>
 		<div class="notification">{{chatBubbleCtrl.message}}</div>
 	</chat-bubble>
 </div>
@@ -199,6 +201,8 @@
 </body>
 <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:700,400|Roboto+Light|Roboto:400,100,300'
 	  rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	  rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/cosmo/bootstrap.min.css">
 <link rel="stylesheet" href="app.css">
 <script href=https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.6/hammer.min.js"></script>

@@ -136,7 +136,7 @@ chat-bubble .close-btn {
   border-radius: 80px;
   box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.4);
   cursor: pointer;
-  background-color: #FF5722;
+  background-color: #FF9800;
   position: fixed;
   right: 130px;
   bottom: 25px;
@@ -147,7 +147,8 @@ chat-bubble .close-btn {
   -webkit-transform: scale(0);
           transform: scale(0);
   color: white;
-  text-align: center; }
+  text-align: center;
+  z-index: 150; }
 
 chat-bubble .notification {
   position: absolute;
@@ -392,6 +393,9 @@ chat {
 .navbar-hamburger {
   font-size: 2em;
   text-align: right; }
+  .navbar-hamburger > .material-icons {
+    display: block;
+    font-size: 1.3em; }
 
 .navbar-sidebar {
   position: fixed;

@@ -11,5 +11,8 @@ function MainController(eventFactory, scrollFactory) {
 
     vm.scrollTo = function (selector) {
         scrollFactory.scrollTo(selector, 600);
-    }
+    };
+    vm.openChatBubble = function() {
+        eventFactory.dispatch('chat-bubble', { action: 'open' });
+    };
 }
