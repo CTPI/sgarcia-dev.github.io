@@ -1,5 +1,5 @@
 module.exports = chat;
-function chat(eventFactory) {
+function chat(eventFactory, scrollFactory) {
     return {
         restrict: 'AE',
         controller: function() {
@@ -20,11 +20,14 @@ function chat(eventFactory) {
         },
         controllerAs: 'chatCtrl',
         link: function(scope, el) {
-            var chatInput = document.querySelector('.chat-input');
+            var chatInput = document.querySelector('.chat-input'),
+                chatContent = document.querySelector('.chat-content');
             angular.element(chatInput).on('keyup', function(event) {
                 if (event.which === 13) {
                     eventFactory.dispatch('chat-window', { action: 'user-input', callback: function() {
                         el.scope().$apply();
+                        var lastMessageOffesetTop = document.querySelector('.chat-content .chat-message:last-child').offsetTop;
+                        scrollFactory.scrollTo(lastMessageOffesetTop, 300, chatContent);
                     }});
                 }
             });
@@ -33,7 +36,6 @@ function chat(eventFactory) {
                     case 'open':
                         if (!el.hasClass('is-active'))
                             el.addClass('is-active');
-                        chatInput.focus();
                         break;
                     case 'close':
                         if (el.hasClass('is-active'))

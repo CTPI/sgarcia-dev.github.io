@@ -2775,7 +2775,7 @@ function ChatController() {
 }
 },{}],11:[function(require,module,exports){
 module.exports = chat;
-function chat(eventFactory) {
+function chat(eventFactory, scrollFactory) {
     return {
         restrict: 'AE',
         controller: function() {
@@ -2796,11 +2796,14 @@ function chat(eventFactory) {
         },
         controllerAs: 'chatCtrl',
         link: function(scope, el) {
-            var chatInput = document.querySelector('.chat-input');
+            var chatInput = document.querySelector('.chat-input'),
+                chatContent = document.querySelector('.chat-content');
             angular.element(chatInput).on('keyup', function(event) {
                 if (event.which === 13) {
                     eventFactory.dispatch('chat-window', { action: 'user-input', callback: function() {
                         el.scope().$apply();
+                        var lastMessageOffesetTop = document.querySelector('.chat-content .chat-message:last-child').offsetTop;
+                        scrollFactory.scrollTo(lastMessageOffesetTop, 300, chatContent);
                     }});
                 }
             });
@@ -2809,7 +2812,6 @@ function chat(eventFactory) {
                     case 'open':
                         if (!el.hasClass('is-active'))
                             el.addClass('is-active');
-                        chatInput.focus();
                         break;
                     case 'close':
                         if (el.hasClass('is-active'))
@@ -2833,7 +2835,7 @@ angular.module('sg-components', ['common'])
     .directive('fillHeight', require('./behaviour/fill-height-directive'))
     .directive('navbar', require('./navbar/navbar-directive'))
     .directive('navbarSidebar', ['eventFactory', require('./navbar/navbar-sidebar-directive')])
-    .directive('chat', ['eventFactory', require('./chat/chat-directive')])
+    .directive('chat', ['eventFactory', 'scrollFactory', require('./chat/chat-directive')])
     .directive('chatBubble', ['eventFactory', 'gestureFactory', require('./chat/chat-bubble-directive')]);
 },{"./app-controller":7,"./behaviour/fill-height-directive":8,"./chat/chat-bubble-directive":9,"./chat/chat-controller":10,"./chat/chat-directive":11,"./navbar/navbar-directive":13,"./navbar/navbar-sidebar-directive":14}],13:[function(require,module,exports){
 module.exports = navbar;

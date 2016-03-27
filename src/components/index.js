@@ -4,5 +4,5 @@ angular.module('sg-components', ['common'])
     .directive('fillHeight', require('./behaviour/fill-height-directive'))
     .directive('navbar', require('./navbar/navbar-directive'))
     .directive('navbarSidebar', ['eventFactory', require('./navbar/navbar-sidebar-directive')])
-    .directive('chat', ['eventFactory', require('./chat/chat-directive')])
+    .directive('chat', ['eventFactory', 'scrollFactory', require('./chat/chat-directive')])
     .directive('chatBubble', ['eventFactory', 'gestureFactory', require('./chat/chat-bubble-directive')]);
