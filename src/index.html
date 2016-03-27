@@ -182,7 +182,10 @@
 			<h4	class="v-center title">Chat</h4>
 		</div>
 		<div class="chat-content">
-			<span ng-bind="chatCtrl.input"></span>
+			<div ng-repeat="chatMsg in chatCtrl.chatLog" class="chat-message left">
+				<span ng-bind="chatMsg.message"></span>
+			</div>
+
 		</div>
 		<input class="chat-input" type="text" placeholder="Message" ng-model="chatCtrl.input">
 		<span class="glyphicon glyphicon-send" aria-hidden="true"></span>

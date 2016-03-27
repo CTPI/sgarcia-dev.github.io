@@ -104,8 +104,24 @@ chat {
 	}
 	.chat-content {
 		width: 100%;
+		padding: 1em;
 		height: calc(100% - 100px);
 		display: block;
+		overflow-x: hidden;
+	}
+	.chat-message {
+		background-color: $accent-color;
+		padding: 0.5em;
+		margin-bottom: 1em;
+		color: white;
+		animation: chatMessageReveal .4s ease-out 1;
+		transform-origin: top;
+		&.left {
+
+		}
+		&.right {
+
+		}
 	}
 	.chat-input {
 		display: block;
@@ -114,6 +130,13 @@ chat {
 		border: 0;
 		padding: 0 15px;
 		background-color: darken(white, 10%);
+		box-shadow: none !important;
+		border: none !important;
+		outline: none;
+		transition: background-color .3s;
+		&:focus {
+			background-color: darken(white, 15%);
+		}
 		& + .glyphicon {
 			position: relative;
 			top: -39px;
@@ -126,5 +149,13 @@ chat {
 			color: gray;
 			vertical-align: middle;
 		}
+	}
+}
+@keyframes chatMessageReveal {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0);
 	}
 }
