@@ -147,8 +147,8 @@ chat-bubble .close-btn {
   -webkit-transform: scale(0);
           transform: scale(0);
   color: white;
-  text-align: center;
-  z-index: 150; }
+  z-index: 150;
+  text-align: center; }
 
 chat-bubble .notification {
   position: absolute;

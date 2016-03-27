@@ -53,8 +53,8 @@ chat-bubble {
 		transition: transform .4s ease-out;
 		transform: scale(0);
 		color: white;
-		text-align: center;
 		z-index: 150;
+		text-align: center;
 	}
 	.notification {
 		position: absolute;
