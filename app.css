@@ -421,6 +421,7 @@ chat {
   .navbar-sidebar.is-open {
     pointer-events: all; }
     .navbar-sidebar.is-open .content {
+      box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.5);
       -webkit-transform: translateZ(0) translateX(0%);
               transform: translateZ(0) translateX(0%); }
 

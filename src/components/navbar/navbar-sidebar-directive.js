@@ -12,6 +12,10 @@ function navbarSidebar(eventFactory) {
             hammerMain.on('swipeleft', function () {
                 el.addClass('is-open');
             });
+            var hammerSidebar = new hammer(document.querySelector('.navbar-sidebar .content'));
+            hammerSidebar.on('swiperight', function() {
+                el.removeClass('is-open');
+            });
             angular.element(document.querySelector('.navbar-sidebar .backdrop')).on('click', function() {
                 el.removeClass('is-open');
             });
