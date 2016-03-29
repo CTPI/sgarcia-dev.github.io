@@ -2727,7 +2727,7 @@ function chatBubble(eventFactory, gestureFactory) {
         restrict: 'AE',
         controller: function() {
             var vm = this;
-            vm.message = 'Bubble';
+            vm.message = 'Click me!';
         },
         controllerAs: 'chatBubbleCtrl',
         link: function(scope, el) {
@@ -2737,7 +2737,12 @@ function chatBubble(eventFactory, gestureFactory) {
                 el.addClass(state);
                 _currentState = state;
             }
-            setState('default');
+            setTimeout(function() {
+                setState('default');
+                setTimeout(function() {
+                    setState('has-notification');
+                }, 500);
+            }, 1000);
             // eventFactory.dispatch('chat-window', { action: 'open' });
             var hammerChatBubble = new hammer(document.querySelector('.chat-bubble-btn')),
                 closeButton = new hammer(document.querySelector('chat-bubble > .close-btn'));
@@ -2780,7 +2785,11 @@ function chat(eventFactory, scrollFactory) {
         restrict: 'AE',
         controller: function() {
             var vm = this;
-            vm.chatLog = [];
+            vm.chatLog = [{
+                author: 'admin',
+                message: "Hello, and welcome to my site! As you might have noticed, it's not quite finished yet. Features like the chat window for real-time chat and quickly sending an email to me are not finished yet. However, feel free to browse other areas of my site normally while I work on the missing features. To close this chat, long press the chat-bubble and select close",
+                timestamp: new Date().toISOString()
+            }];
             vm.input = '';
             eventFactory.listen('chat-window', function(data) {
                 if (data.action === 'user-input') {
@@ -2797,16 +2806,17 @@ function chat(eventFactory, scrollFactory) {
         controllerAs: 'chatCtrl',
         link: function(scope, el) {
             var chatInput = document.querySelector('.chat-input'),
-                chatContent = document.querySelector('.chat-content');
+                chatContent = document.querySelector('.chat-content'),
+                chatEnterButton = document.querySelector('.chat-input-btn');
             angular.element(chatInput).on('keyup', function(event) {
                 if (event.which === 13) {
-                    eventFactory.dispatch('chat-window', { action: 'user-input', callback: function() {
-                        el.scope().$apply();
-                        var lastMessageOffesetTop = document.querySelector('.chat-content .chat-message:last-child').offsetTop;
-                        scrollFactory.scrollTo(lastMessageOffesetTop, 300, chatContent);
-                    }});
+                    InsertMessage();
                 }
             });
+            angular.element(chatEnterButton).on('click', function() {
+                InsertMessage();
+            });
+
             eventFactory.listen('chat-window', function(data) {
                 switch(data.action) {
                     case 'open':
@@ -2825,6 +2835,13 @@ function chat(eventFactory, scrollFactory) {
                         break;
                 }
             });
+            function InsertMessage() {
+                eventFactory.dispatch('chat-window', { action: 'user-input', callback: function() {
+                    el.scope().$apply();
+                    var lastMessageOffesetTop = document.querySelector('.chat-content .chat-message:last-child').offsetTop;
+                    scrollFactory.scrollTo(lastMessageOffesetTop, 300, chatContent);
+                }});
+            }
         }
     }
 }

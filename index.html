@@ -59,7 +59,7 @@
 					<h1 class="title">Sergei García</h1>
 					<h4 class="subtitle">Front End Developer</h4>
 					<div class="scroll-indicator">
-						<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+						<span class="glyphicon glyphicon-chevron-down" aria-hidden="true" ng-click="appCtrl.scrollTo('#l-about-me')"></span>
 					</div>
 				</div>
 			</div>
@@ -89,7 +89,7 @@
 				<div class="col-xs-12 col-sm-6 col-md-4">
 					<h4 class="content-header">Javascript</h4>
 					<div class="progress">
-						<div class="progress-bar" style="width: 75%;"></div>
+						<div class="progress-bar" style="width: 85%;"></div>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-4">
@@ -99,15 +99,39 @@
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-4">
-					<h4 class="content-header">Angular</h4>
+					<h4 class="content-header">Sass/Less</h4>
 					<div class="progress">
 						<div class="progress-bar" style="width: 60%;"></div>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-4">
-					<h4 class="content-header">Gulp/Grunt</h4>
+					<h4 class="content-header">Responsive Design</h4>
 					<div class="progress">
-						<div class="progress-bar" style="width: 80%;"></div>
+						<div class="progress-bar" style="width: 60%;"></div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<h4 class="content-header">JQuery</h4>
+					<div class="progress">
+						<div class="progress-bar" style="width: 40%;"></div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<h4 class="content-header">Angular</h4>
+					<div class="progress">
+						<div class="progress-bar" style="width: 65%;"></div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<h4 class="content-header">Ionic Framework</h4>
+					<div class="progress">
+						<div class="progress-bar" style="width: 30%;"></div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<h4 class="content-header">CI (Gulp/Grunt)</h4>
+					<div class="progress">
+						<div class="progress-bar" style="width: 70%;"></div>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-4">
@@ -133,9 +157,10 @@
 					<div class="card">
 						<h2 class="content-header">Accenture (2014 - Current)</h2>
 						<ul>
-							<li>Developed a mobile application for a private client in the medical area in Xamarin that worked across iOS and Android</li>
-							<li>Worked on a Responsive Website that worked across a variety of devices (mobile, tablet, desktop) for a private client in the medical area utilizing technologies such as jQuery, Foundation and Sass.</li>
-							<li>Worked on a mobile iOS application for a private client in the agriculture area developed in Ionic (Cordova) using technologies such as AngularJS, Bootstrap and Sass. Also contributed to the project's unit testing with Jasmine and Continuous integration start up with Gulp and Docker</li>
+							<li>Was part of an agile development demo-team made up of 2 people that created mobile applications demos in Xamarin Forms within a small time frame (1-1.5 months).</li>
+							<li>Worked on a 3-person team that built a responsive website for Indiana University Health that worked across a variety of devices (mobile, tablet, desktop) utilizing jQuery, Foundation and Sass. Tasks included working primarily on the 40% of the site’s JavaScript and CSS code.</li>
+							<li>Contributed as people developer of the local development center by providing training examples and presentations for writing Mobile Focused CSS, Docker, and AngularJS which helped +30 people improve their skills.</li>
+							<li>Currently part of a 10-person team in charge of building a precision agriculture solution which includes an iOS app that automated and provided intelligent farm administration built in Ionic Framework. Tasks included continuous training of the team in CSS and AngularJS, proposing solutions to technological barriers for the client's needs, as well as writing a 40% of the project’s code repository documentation for new team members.</li>
 						</ul>
 					</div>
 				</div>
@@ -145,34 +170,7 @@
 	<div id="l-contact" class="block l-contact">
 		<div class="container">
 			<h1 class="content-header">Portfolio</h1>
-			<form class="well form-horizontal">
-				<fieldset>
-					<div class="form-group">
-						<label for="inputName" class="col-lg-2 control-label">Name</label>
-						<div class="col-lg-10">
-							<input type="text" class="form-control" id="inputName" placeholder="Name" autocomplete="off">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="inputEmail" class="col-lg-2 control-label">Email</label>
-						<div class="col-lg-10">
-							<input type="text" class="form-control" id="inputEmail" placeholder="Email" autocomplete="off">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="textArea" class="col-lg-2 control-label">Message</label>
-						<div class="col-lg-10">
-							<textarea class="form-control" rows="3" id="textArea"></textarea>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-lg-10 col-lg-offset-2">
-							<button type="reset" class="btn btn-default">Cancel</button>
-							<button type="submit" class="btn btn-primary">Submit</button>
-						</div>
-					</div>
-				</fieldset>
-			</form>
+			<h4>Coming soon...</h4>
 		</div>
 	</div>
 </main>
@@ -182,13 +180,13 @@
 			<h4	class="v-center title">Chat</h4>
 		</div>
 		<div class="chat-content">
-			<div ng-repeat="chatMsg in chatCtrl.chatLog" class="chat-message left">
+			<div ng-repeat="chatMsg in chatCtrl.chatLog" class="chat-message" ng-class="chatMsg.author">
+				<h6 class="chat-message-author">{{chatMsg.author | uppercase}}</h6>
 				<span ng-bind="chatMsg.message"></span>
 			</div>
-
 		</div>
 		<input class="chat-input" type="text" placeholder="Message" ng-model="chatCtrl.input">
-		<span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+		<span class="glyphicon glyphicon-send chat-input-btn" aria-hidden="true"></span>
 	</chat>
 	<chat-bubble>
 		<div class="chat-bubble-btn"></div>

@@ -5,7 +5,7 @@ function chatBubble(eventFactory, gestureFactory) {
         restrict: 'AE',
         controller: function() {
             var vm = this;
-            vm.message = 'Bubble';
+            vm.message = 'Click me!';
         },
         controllerAs: 'chatBubbleCtrl',
         link: function(scope, el) {
@@ -15,7 +15,12 @@ function chatBubble(eventFactory, gestureFactory) {
                 el.addClass(state);
                 _currentState = state;
             }
-            setState('default');
+            setTimeout(function() {
+                setState('default');
+                setTimeout(function() {
+                    setState('has-notification');
+                }, 500);
+            }, 1000);
             // eventFactory.dispatch('chat-window', { action: 'open' });
             var hammerChatBubble = new hammer(document.querySelector('.chat-bubble-btn')),
                 closeButton = new hammer(document.querySelector('chat-bubble > .close-btn'));

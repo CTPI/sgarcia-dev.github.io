@@ -163,12 +163,14 @@ chat-bubble .close-btn {
   text-align: center; }
 
 chat-bubble .notification {
-  position: absolute;
-  background-color: #FF8A00;
+  position: fixed;
+  right: 124px;
+  bottom: 48px;
+  z-index: 150;
+  font-size: 14px;
+  width: 128px;
+  background-color: #FF5722;
   color: #FFF;
-  right: 100px;
-  bottom: 23px;
-  width: 200px;
   height: 33px;
   border-radius: 4px;
   padding: 4px 9px;
@@ -207,10 +209,10 @@ chat {
   chat .title-bar {
     height: 50px;
     display: block;
-    background-color: #FF5722;
+    background-color: #505050;
     padding: 0 10px; }
     chat .title-bar .title {
-      font-family: 'Roboto';
+      font-family: 'Roboto Slab', sans-serif;
       font-weight: 300;
       display: inline-block;
       color: white; }
@@ -221,14 +223,22 @@ chat {
     display: block;
     overflow-x: hidden; }
   chat .chat-message {
-    background-color: #F57C00;
     padding: 0.5em;
     margin-bottom: 1em;
     color: white;
-    -webkit-animation: chatMessageReveal .4s ease-out 1;
-            animation: chatMessageReveal .4s ease-out 1;
     -webkit-transform-origin: top;
             transform-origin: top; }
+    chat .chat-message.admin {
+      background-color: #F57C00;
+      -webkit-animation: adminMessageReveal .4s ease-out 1;
+              animation: adminMessageReveal .4s ease-out 1; }
+    chat .chat-message.user {
+      background-color: #ff9529;
+      -webkit-animation: userMessageReveal .4s ease-out 1;
+              animation: userMessageReveal .4s ease-out 1; }
+    chat .chat-message .chat-message-author {
+      font-family: 'Roboto', sans-serif;
+      opacity: .7; }
   chat .chat-input {
     display: block;
     width: 100%;
@@ -255,7 +265,7 @@ chat {
       color: gray;
       vertical-align: middle; }
 
-@-webkit-keyframes chatMessageReveal {
+@-webkit-keyframes adminMessageReveal {
   0% {
     -webkit-transform: translateX(-100%);
             transform: translateX(-100%); }
@@ -263,10 +273,26 @@ chat {
     -webkit-transform: translateX(0);
             transform: translateX(0); } }
 
-@keyframes chatMessageReveal {
+@keyframes adminMessageReveal {
   0% {
     -webkit-transform: translateX(-100%);
             transform: translateX(-100%); }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@-webkit-keyframes userMessageReveal {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@keyframes userMessageReveal {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); }
   100% {
     -webkit-transform: translateX(0);
             transform: translateX(0); } }

@@ -57,12 +57,14 @@ chat-bubble {
 		text-align: center;
 	}
 	.notification {
-		position: absolute;
-		background-color: #FF8A00;
+		position: fixed;
+		right: 124px;
+		bottom: 48px;
+		z-index: 150;
+		font-size: 14px;
+		width: 128px;
+		background-color: $accent-color-dark;
 		color: #FFF;
-		right: 100px;
-		bottom: 23px;
-		width: 200px;
 		height: 33px;
 		border-radius: 4px;
 		padding: 4px 9px;
@@ -93,10 +95,10 @@ chat {
 	.title-bar {
 		height: 50px;
 		display: block;
-		background-color: $accent-color-dark;
+		background-color: darken(dimgray, 10%);
 		padding: 0 10px;
 		.title {
-			font-family: 'Roboto';
+			font-family: 'Roboto Slab', sans-serif;
 			font-weight: 300;
 			display: inline-block;
 			color: white;
@@ -110,17 +112,21 @@ chat {
 		overflow-x: hidden;
 	}
 	.chat-message {
-		background-color: $accent-color;
 		padding: 0.5em;
 		margin-bottom: 1em;
 		color: white;
-		animation: chatMessageReveal .4s ease-out 1;
 		transform-origin: top;
-		&.left {
-
+		&.admin {
+			background-color: $accent-color;
+			animation: adminMessageReveal .4s ease-out 1;
 		}
-		&.right {
-
+		&.user {
+			background-color: lighten($accent-color, 10%);
+			animation: userMessageReveal .4s ease-out 1;
+		}
+		.chat-message-author {
+			font-family: 'Roboto', sans-serif;
+			opacity: .7;
 		}
 	}
 	.chat-input {
@@ -151,9 +157,17 @@ chat {
 		}
 	}
 }
-@keyframes chatMessageReveal {
+@keyframes adminMessageReveal {
 	0% {
 		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+@keyframes userMessageReveal {
+	0% {
+		transform: translateX(100%);
 	}
 	100% {
 		transform: translateX(0);
