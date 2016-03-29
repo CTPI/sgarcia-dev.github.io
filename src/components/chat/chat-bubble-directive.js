@@ -9,18 +9,20 @@ function chatBubble(eventFactory, gestureFactory) {
         },
         controllerAs: 'chatBubbleCtrl',
         link: function(scope, el) {
-            var _currentState = '';
+            var _currentState = 'is-hidden';
             function setState(state) {
                 el.removeClass(_currentState || '');
                 el.addClass(state);
                 _currentState = state;
             }
             setTimeout(function() {
+                if (_currentState !== 'is-hidden')
+                    return;
                 setState('default');
                 setTimeout(function() {
                     setState('has-notification');
                 }, 500);
-            }, 1000);
+            }, 4000);
             // eventFactory.dispatch('chat-window', { action: 'open' });
             var hammerChatBubble = new hammer(document.querySelector('.chat-bubble-btn')),
                 closeButton = new hammer(document.querySelector('chat-bubble > .close-btn'));
