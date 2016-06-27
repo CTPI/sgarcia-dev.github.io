@@ -1,48 +1,68 @@
 var gulp = require('gulp'),
-	source = require('vinyl-source-stream'),
-	browserify = require('browserify'),
-	sass = require('gulp-sass'),
-	autoprefixer = require('gulp-autoprefixer'),
-	gutil = require('gulp-util'),
-	flatten = require('gulp-flatten'),
-	plumber = require('gulp-plumber');
+    gp = {};
 
-gulp.task('default', ['sass', 'html', 'js', 'dev-watch'], function () {
-	return gutil.log('Gulp Watch service is running!');
+gp.vinylSourceStream = require('vinyl-source-stream');
+gp.babelify = require('babelify');
+gp.browserify = require('browserify');
+gp.sass = require('gulp-sass');
+gp.autoprefixer = require('gulp-autoprefixer');
+gp.inlineSource = require('gulp-inline-source');
+gp.rename = require('gulp-rename');
+gp.gutil = require('gulp-util');
+gp.flatten = require('gulp-flatten');
+gp.plumber = require('gulp-plumber');
+gp.clean = require('gulp-clean');
+gp.runSequence = require('run-sequence');
+
+gulp.task('default', ['process-css', 'process-html', 'process-js', 'dev-watch'], function() {
+
 });
 
-gulp.task('dev-watch', ['sass', 'html', 'js'], function() {
-	gulp.watch('src/**/*.scss', ['sass']);
-	gulp.watch('src/**/*.html', ['html']);
-	gulp.watch('src/**/*.js', ['js'])
+gulp.task('build', ['process-css', 'process-html', 'process-js'], function() {
+
 });
 
-gulp.task('sass', function() {
-	gulp.src('src/**/app.scss')
-		.pipe(plumber())
-		.pipe(sass().on('error', sass.logError))
-		.pipe(autoprefixer())
-		.pipe(gulp.dest('./'));
+gulp.task('clean', function() {
+    return gulp.src('app/', {
+            read: false
+        })
+        .pipe(gp.clean());
 });
 
-gulp.task('js', function() {
-	browserify('src/app.js')
-		.bundle()
-		.on('error', function(error) {
-			gutil.log(error);
-		})
-		.pipe(source('bundle.js'))
-		.pipe(gulp.dest('./'));
+gulp.task('dev-watch', ['process-css', 'process-html', 'process-js'], function(cb) {
+    gulp.watch('src/**/*.scss', ['process-css']);
+    gulp.watch('src/**/*.html', ['process-html']);
+    gulp.watch('src/**/*.js', ['process-js']);
+	gp.gutil.log('Gulp Watch service is running!');
+	cb();
 });
 
-gulp.task('html', function() {
-	gulp.src('src/**/index.html')
-		.pipe(flatten())
-		.pipe(gulp.dest('./'));
-	gulp.src('src/**/*-view.html')
-		.pipe(flatten())
-		.pipe(gulp.dest('./views'));
-	gulp.src('src/**/*-template.html')
-		.pipe(flatten())
-		.pipe(gulp.dest('./templates'));
+gulp.task('process-css', function() {
+    gulp.src('src/**/app.scss')
+        .pipe(gp.plumber())
+        .pipe(gp.sass().on('error', gp.sass.logError))
+        .pipe(gp.autoprefixer())
+        .pipe(gulp.dest('./app'));
+});
+
+gulp.task('process-js', function() {
+    gp.browserify('src/app.js', {
+            debug: true
+        })
+        .transform(gp.babelify)
+        .bundle()
+        .on('error', function(error) {
+            gp.gutil.log(error);
+        })
+        .pipe(gp.vinylSourceStream('bundle.js'))
+        .pipe(gulp.dest('./app'));
+});
+
+gulp.task('process-html', function() {
+    gulp.src('src/**/*-view.html')
+        .pipe(gp.flatten())
+        .pipe(gulp.dest('./app/views'));
+    gulp.src('src/**/*-template.html')
+        .pipe(gp.flatten())
+        .pipe(gulp.dest('./app/templates'));
 });
