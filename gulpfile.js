@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
-    gp = {};
+	gp = {},
+	flag = null;
 
 gp.vinylSourceStream = require('vinyl-source-stream');
 gp.babelify = require('babelify');
@@ -13,56 +14,84 @@ gp.flatten = require('gulp-flatten');
 gp.plumber = require('gulp-plumber');
 gp.clean = require('gulp-clean');
 gp.runSequence = require('run-sequence');
+gp.arguments = require('yargs').argv;
+gp.cleanCSS = require('gulp-clean-css');
+gp.rename = require('gulp-rename');
 
-gulp.task('default', ['process-css', 'process-html', 'process-js', 'dev-watch'], function() {
+gulp.task('default', ['dev']);
 
+gulp.task('build', [], function() {
+	return gp.runSequence('clean', ['process-css', 'process-js'], 'process-html');
 });
 
-gulp.task('build', ['process-css', 'process-html', 'process-js'], function() {
-
-});
-
-gulp.task('clean', function() {
-    return gulp.src('app/', {
-            read: false
-        })
-        .pipe(gp.clean());
-});
-
-gulp.task('dev-watch', ['process-css', 'process-html', 'process-js'], function(cb) {
-    gulp.watch('src/**/*.scss', ['process-css']);
-    gulp.watch('src/**/*.html', ['process-html']);
-    gulp.watch('src/**/*.js', ['process-js']);
+gulp.task('dev', function(cb) {
+	gp.runSequence('clean', ['process-css-debug', 'process-js-debug'], 'process-html');
+	gulp.watch('src/**/*.scss', ['process-css-debug']);
+	gulp.watch('src/**/*.html', ['process-html']);
+	gulp.watch('src/**/*.js', ['process-js-debug']);
 	gp.gutil.log('Gulp Watch service is running!');
 	cb();
 });
 
+gulp.task('clean', function() {
+	return gulp.src('app', {
+			read: false
+		})
+		.pipe(gp.clean({force: true}));
+});
+
 gulp.task('process-css', function() {
-    gulp.src('src/**/app.scss')
-        .pipe(gp.plumber())
-        .pipe(gp.sass().on('error', gp.sass.logError))
-        .pipe(gp.autoprefixer())
-        .pipe(gulp.dest('./app'));
+	return gulp.src('src/**/app.scss')
+		.pipe(gp.plumber())
+		.pipe(gp.sass().on('error', gp.sass.logError))
+		.pipe(gp.autoprefixer())
+		.pipe(gp.cleanCSS())
+		.pipe(gp.rename('app.min.scss'))
+		.pipe(gulp.dest('./app'));
+});
+
+gulp.task('process-css-debug', function() {
+	return gulp.src('src/**/app.scss')
+		.pipe(gp.plumber())
+		.pipe(gp.sass().on('error', gp.sass.logError))
+		.pipe(gp.autoprefixer())
+		.pipe(gp.rename('app.min.scss'))
+		.pipe(gulp.dest('./app'));
 });
 
 gulp.task('process-js', function() {
-    gp.browserify('src/app.js', {
-            debug: true
-        })
-        .transform(gp.babelify)
-        .bundle()
-        .on('error', function(error) {
-            gp.gutil.log(error);
-        })
-        .pipe(gp.vinylSourceStream('bundle.js'))
-        .pipe(gulp.dest('./app'));
+	return gp.browserify('src/app.js')
+		.transform(gp.babelify)
+		.bundle()
+		.on('error', function(error) {
+			gp.gutil.log(error);
+		})
+		.pipe(gp.vinylSourceStream('app.min.js'))
+		.pipe(gulp.dest('./app'));
+});
+
+gulp.task('process-js-debug', function() {
+	return gp.browserify('src/app.js', {
+			debug: true
+		})
+		.transform(gp.babelify)
+		.bundle()
+		.on('error', function(error) {
+			gp.gutil.log(error);
+		})
+		.pipe(gp.vinylSourceStream('app.min.js'))
+		.pipe(gulp.dest('./app'));
 });
 
 gulp.task('process-html', function() {
-    gulp.src('src/**/*-view.html')
-        .pipe(gp.flatten())
-        .pipe(gulp.dest('./app/views'));
-    gulp.src('src/**/*-template.html')
-        .pipe(gp.flatten())
-        .pipe(gulp.dest('./app/templates'));
+	gulp.src('src/index.html')
+		.pipe(gp.flatten())
+		.pipe(gp.inlineSource())
+		.pipe(gulp.dest('./'));
+	gulp.src('src/**/*-view.html')
+		.pipe(gp.flatten())
+		.pipe(gulp.dest('./app/views'));
+	gulp.src('src/**/*-template.html')
+		.pipe(gp.flatten())
+		.pipe(gulp.dest('./app/templates'));
 });
