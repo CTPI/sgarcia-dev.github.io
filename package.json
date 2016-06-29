@@ -28,6 +28,7 @@
     "gulp-util": "^3.0.7",
     "run-sequence": "^1.2.1",
     "vinyl-source-stream": "^1.1.0",
+    "vinyl-transform": "^1.0.0",
     "yargs": "^4.7.1"
   },
   "dependencies": {

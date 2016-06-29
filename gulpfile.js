@@ -17,6 +17,7 @@ gp.runSequence = require('run-sequence');
 gp.arguments = require('yargs').argv;
 gp.cleanCSS = require('gulp-clean-css');
 gp.rename = require('gulp-rename');
+gp.vinylTransform = require('vinyl-transform');
 
 gulp.task('default', ['dev']);
 
@@ -37,36 +38,42 @@ gulp.task('clean', function() {
 	return gulp.src('app', {
 			read: false
 		})
-		.pipe(gp.clean({force: true}));
+		.pipe(gp.clean({
+			force: true
+		}));
 });
 
 gulp.task('process-css', function() {
-	return gulp.src('src/**/app.scss')
+	return gulp.src(['src/app.scss', 'src/app.inline.scss'])
 		.pipe(gp.plumber())
 		.pipe(gp.sass().on('error', gp.sass.logError))
 		.pipe(gp.autoprefixer())
 		.pipe(gp.cleanCSS())
-		.pipe(gp.rename('app.min.scss'))
+		.pipe(gp.rename({ suffix: '.min' }))
 		.pipe(gulp.dest('./app'));
 });
 
 gulp.task('process-css-debug', function() {
-	return gulp.src('src/**/app.scss')
+	return gulp.src(['src/app.scss', 'src/app.inline.scss'])
 		.pipe(gp.plumber())
 		.pipe(gp.sass().on('error', gp.sass.logError))
 		.pipe(gp.autoprefixer())
-		.pipe(gp.rename('app.min.scss'))
+		.pipe(gp.rename({ suffix: '.min' }))
 		.pipe(gulp.dest('./app'));
 });
 
+var browserified = gp.vinylTransform(function(filename) {
+	var _browserify = gp.browserify(filename);
+	_browserify.transform(gp.babelify)
+	return _browserify.bundle();
+});
+
 gulp.task('process-js', function() {
-	return gp.browserify('src/app.js')
-		.transform(gp.babelify)
-		.bundle()
+	return gulp.src(['src/app.js'])
+		.pipe(browserified)
 		.on('error', function(error) {
 			gp.gutil.log(error);
 		})
-		.pipe(gp.vinylSourceStream('app.min.js'))
 		.pipe(gulp.dest('./app'));
 });
 
