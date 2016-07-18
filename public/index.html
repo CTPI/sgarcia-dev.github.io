@@ -9,12 +9,19 @@
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 	<title>Sergei Garcia</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<!-- inject:css -->
+	<link rel="stylesheet" href="/bundle.css">
+	<!-- endinject -->
+	<!-- inject:js -->
+	<script src="/bundle.js"></script>
+	<!-- endinject -->
 </head>
-<body>
-<h1>Hello world</h1>
+<body ng-app="app">
+<div class="container">
+	<sg-contact-form></sg-contact-form>
+</div>
 </body>
-<link rel="stylesheet" href="app.min.css">
-<script src="app.min.js"></script>
 </html>

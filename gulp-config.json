@@ -1,0 +1,21 @@
+{
+	"src": {
+		"js": [
+			"./app/index.js"
+		],
+		"css": [
+			"./app/index.styl"
+		]
+	},
+	"dest": {
+		"main": "./public"
+	},
+	"dependencies": {
+		"js": [
+			"./public/bundle.js"
+		],
+		"css": [
+			"./public/bundle.css"
+		]
+	}
+}

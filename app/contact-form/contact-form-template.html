@@ -1,0 +1,22 @@
+<form ng-submit="sgContactForm.onSubmit()">
+	<h3>Contact Form</h3>
+	<div class="form-group">
+		<label for="nameTxt">Name</label>
+		<div>
+			<input ng-model="sgContactForm.name"
+				type="text" class="form-control" id="nameTxt" placeholder="Insert name here">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="emailTxt">Email</label>
+		<div>
+			<input ng-model="sgContactForm.email"
+				type="text" class="form-control" id="emailTxt" placeholder="Insert email here">
+		</div>
+	</div>
+	<h3 ng-bind="sgContactForm.message">Message</h3>
+	<div>
+		<p span="center-block">something</p>
+	</div>
+	<input class="btn btn-primary" type="submit" id="submit" value="submit">
+</form>
