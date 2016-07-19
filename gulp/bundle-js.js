@@ -14,9 +14,19 @@ module.exports = function(gulp, gp, gc) {
 	}
 
 	function bundleJs() {
-		bundlers.forEach(function (bundler) {
-			bundler.startBundle()
+		var bundlersPromises = bundlers.map(bundler => {
+			return bundler.startBundle();
 		});
+
+		Promise.all(bundlersPromises)
+			.then(handlerAfterAllBundlesHaveFinished,() => {
+				//TODO: Handle the rejected promise
+			})
+	}
+
+	function handlerAfterAllBundlesHaveFinished(){
+		//TODO: Logic to perform after all the bundlers have finished
+		gp.gutil.log.call(gp.gutil, 'all Bundlers have finished!');
 	}
 
 	function createBundlers() {
@@ -40,18 +50,27 @@ module.exports = function(gulp, gp, gc) {
 		return bundler;
 
 		function startBundle() {
-			bundler.bundle()
-				.on('error', gp.gutil.log.bind(gp.gutil, 'Browserify error'))
-				.pipe(gp.source('bundle.js'))
-				.pipe(gp.buffer())
-				.pipe(gulp.dest(gc.dest.main))
-				.pipe(gp.connect.reload());
+			return new Promise(function(resolve, reject){
+				bundler.bundle()
+					.on('error', () => {
+						gp.gutil.log.call(gp.gutil, 'Browserify error');
+						reject();
+					})
+					.on('end', () => {
+						gp.gutil.log.call(gp.gutil, 'Browserify Process Ended');
+						resolve();
+					})
+					.pipe(gp.source('bundle.js'))
+					.pipe(gp.buffer())
+					.pipe(gulp.dest(gc.dest.main))
+					.pipe(gp.connect.reload());
+			});
 		}
 
 		function watch() {
 			bundler.on('update', function() {
 				gp.gutil.log('Watchify: Bundling Javascript...');
-				bundler.startBundle();
+				bundleJs();
 			});
 		}
 	}
